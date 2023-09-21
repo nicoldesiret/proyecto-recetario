@@ -12,7 +12,11 @@ class RecetasController extends Controller
      */
     public function index()
     {
-        return view('recetas/listadoRecetas');
+        $recetas = Recetas::all(); ///regresa todo lo de la tabla
+        ///Recetas::where('nombre','Nicol')->get();
+
+        //dd($recetas); ///verficar que la consulta funciona
+        return view('recetas/listadoRecetas', compact('recetas'));
     }
 
     /**
@@ -28,7 +32,14 @@ class RecetasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$request->validate([]);
+        $recetas = new Recetas();
+        $recetas->titulo = $request->titulo;
+        $recetas->descripcion = $request->descripcion;
+        $recetas->tipoComida = $request->tipoComida;
+        $recetas->save();
+
+        return redirect()->route('recetas.index');
     }
 
     /**
@@ -36,7 +47,8 @@ class RecetasController extends Controller
      */
     public function show(Recetas $recetas)
     {
-        //
+        return view('recetas.recetas.show', compact('recetas'));
+        //$recetas = Recetas::find($id);
     }
 
     /**

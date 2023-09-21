@@ -9,6 +9,7 @@
     <h1>Formulario</h1>
     <form action="/recetas" method="POST">
         @csrf
+        
         <label for="titulo">Titulo</label>
         <input type="text" name="titulo"><br><br>
         
@@ -18,7 +19,7 @@
         <label for="tipoComida">Tipo de comida</label>
         <input type="text" name="tipoComida"><br><br>
         
-        <button class="btn btn-primary mt-3 mb-5" >Subir</button>
+        <input type="submit" value="Enviar"> 
     </form>
 </body>
 </html>
