@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('ingredientes', IngredientesController::class);
+//Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');

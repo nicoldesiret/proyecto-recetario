@@ -12,7 +12,12 @@ class IngredientesController extends Controller
      */
     public function index()
     {
-        return view('ingredientes/ingrediente-index');
+        $ingredientes = Ingredientes::all(); //recupera todo lo de la tabla
+
+        //dd($ingredientes);
+        //Ingrediente::where ('nombre','Pepino')->get();
+        return view('ingredientes/ingrediente-index', compact('ingredientes'));
+        
     }
 
     /**
@@ -28,7 +33,19 @@ class IngredientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            //'nombre'=>'required|max:200',
+            //'cantidad'=>'required1|numeric',
+            //'unidadMedida'=>'required'
+        ]);
+
+        $ingrediente = new Ingredientes();
+        $ingrediente->nombre = $request->nombre;
+        $ingrediente->cantidad = $request->cantidad;
+        $ingrediente->unidadMedida = $request->unidadMedida;
+        $ingrediente->save();
+
+        return redirect('ingredientes.index');
     }
 
     /**
@@ -36,7 +53,9 @@ class IngredientesController extends Controller
      */
     public function show(Ingredientes $ingredientes)
     {
-        //
+        return view('ingredientes/ingredientes-show', compact('ingredientes'));
+        //$imngrediente= Ingredientes::find($id);
+        //dd($ingredientes); para probar que funciona
     }
 
     /**
