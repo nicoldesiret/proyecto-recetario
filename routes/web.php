@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('comentarios', ComentariosController::class);
+
+#Route::post('/', [ComentariosControllerntroller::class, 'create'])
+

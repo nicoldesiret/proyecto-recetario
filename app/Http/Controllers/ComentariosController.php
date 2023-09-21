@@ -19,17 +19,23 @@ class ComentariosController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+
+    public function create(Request $request)
     {
-        return view('listado-formulario');
-    }
+            $contacto = new Comentarios();
+            $contacto->comentario = $request->comentario;
+            $contacto->save();
+            return redirect()->back();
+        return view('listado-comentarios');
+    }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**
