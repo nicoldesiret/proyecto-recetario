@@ -9,7 +9,7 @@
     <h1>BIENVENIDO, REALIZA TU COMENTARIO</h1>
 
     @csrf 
-    <form method="POST" action="{{ route('comentarios.create') }}"> 
+    <form method="POST" action="{{route('comentario.store')}}"> 
         @csrf
         <h2>Ingresa tu comentario</h2>
         <label for="comentario">Comentario:</label><br>
@@ -25,7 +25,7 @@
         <option value="1">Malo</option>
          </select><br>
 
-         <input type="submit" value="enviar"> 
+         <input type="submit" value="Enviar"> 
         
     </form> 
     

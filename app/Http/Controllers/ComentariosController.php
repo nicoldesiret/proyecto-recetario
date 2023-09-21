@@ -13,29 +13,37 @@ class ComentariosController extends Controller
      */
     public function index()
     {
-        return view('formulario-comentarios');
+        $allcomentarios = Comentarios::all(); #Para recuperar los datos de la tabla
+        #dd($allcomentarios);
+        #allcomentarios lo nombré para quefueran todos los comentarios
+        #>>   Comentarios::where('nombre', 'Lili')->get(); 
+        #Ese tiene la misma función pero es más para una selección
+        #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicas.
+        return view('listado-comentarios', compact('allcomentarios'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
 
-    public function create(Request $request)
+    public function create()
     {
-            $contacto = new Comentarios();
-            $contacto->comentario = $request->comentario;
-            $contacto->save();
-            return redirect()->back();
-        return view('listado-comentarios');
+        return view('formulario-comentarios');
+        
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) #CON ESTO SE GUARDA TODO A LA BASE DE DATOS
     {
-
-
+            $comentarios = new Comentarios(); #Lo que viene del request lo asignamos acá 
+            $comentarios->comentario = $request->comentario;  #Comentarios es por el nombre de la tabla ve en migrations
+            $comentarios->calificacion=$request->calificacion;
+            $comentarios->save();
+            return redirect()->route('comentario.index');
+            #return redirect('/comentario');
+            #return redirect()->back();   #El store solo sirve para guardar datos
     }
 
     /**
@@ -43,7 +51,10 @@ class ComentariosController extends Controller
      */
     public function show(Comentarios $comentarios)
     {
-        //
+        #dd($comentarios);
+        return view('comentarios.comentario-show', compact('comentario-info'));
+        #$comentario= Comentarios::find($id);
+
     }
 
     /**

@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('comentario', ComentariosController::class);  #Aquí debes poner resource 
+#'comentario' puede ser lo que yo quiera pero, también tiene que estár 
+#en action="/comentario"> esto en formulario, dentro del action tiene que coincidir. 
 
+Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
 
