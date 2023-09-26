@@ -45,33 +45,39 @@ class RecetasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recetas $recetas)
+    public function show(Recetas $receta)
     {
-        return view('recetas.recetas.show', compact('recetas'));
+        return view('recetas.receta-show', compact('receta'));
         //$recetas = Recetas::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Recetas $recetas)
+    public function edit(Recetas $receta)
     {
-        //
+        return view('recetas.recetas-edit', compact('receta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Recetas $recetas)
+    public function update(Request $request, Recetas $receta)
     {
-        //
+        $receta->titulo = $request->titulo;
+        $receta->descripcion = $request->descripcion;
+        $receta->tipoComida = $request->tipoComida;
+        $receta->save();
+        
+        return redirect()->route('recetas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Recetas $recetas)
+    public function destroy(Recetas $receta)
     {
-        //
+        $receta->delete();
+        return redirect()->route('recetas.index');
     }
 }

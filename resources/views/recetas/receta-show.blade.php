@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Detalles de Receta: {{$recetas->titulo}}</h1>
-    <h2>Referencia: {{$normas->referencia}}</h2>
+    <h1>Detalles de Receta: {{$receta->titulo}}</h1>
+    <h2>Descripción: {{$receta->descripcion}}</h2>
 </body>
 </html>
