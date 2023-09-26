@@ -49,10 +49,10 @@ class ComentariosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comentarios $comentarios)
-    {
+    public function show(Comentarios $comentario)
+    {#se recibe un objeto del modelo que creamos, el objeto es una consulta select*from etc. 
         #dd($comentarios);
-        return view('comentarios.comentario-show', compact('comentario-info'));
+        return view('comentario-info', compact('comentario'));
         #$comentario= Comentarios::find($id);
 
     }
@@ -60,24 +60,34 @@ class ComentariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comentarios $comentarios)
+    public function edit(Comentarios $comentario)
     {
+        #Aquí se puede editar el cometario, esperamos una instancia del registro, podemos agregar un 
+        #enlace peo ahora apuntando al edit. 
+        return view('comentario-editar', compact('comentario'));
+
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comentarios $comentarios)
+    public function update(Request $request, Comentarios $comentario)
     {
+        $comentario->comentario=$request->comentario; 
+        $comentario->calificacion=$request->calificacion; 
+        $comentario->save();
+        return redirect()->route('comentario.index');
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comentarios $comentarios)
+    public function destroy(Comentarios $comentario)
     {
+        $comentario->DELETE(); 
+        return redirect()->route('comentario.index');
         //
     }
 }

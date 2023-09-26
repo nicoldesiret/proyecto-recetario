@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>INFORMACIÓN DE COMENTARIO</h1>
+    <li>Fecha de creación del comentario: {{$comentario->created_at}}</li>
     
 </body>
 </html>

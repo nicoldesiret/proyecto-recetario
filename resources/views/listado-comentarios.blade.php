@@ -11,14 +11,23 @@
     <ul>
           
         @foreach ($allcomentarios as $comentarios)
+
+
         <a href="{{ route('comentario.show', $comentarios->id)}}">
-         {{$comentarios->id}}
-        </a>
+         {{$comentarios->id}}</a>
+
         <li>Comentario: {{ $comentarios->comentario }} </li>
-        
 
         <li>Calificación: {{ $comentarios->calificacion}}</li>
         <li>Fecha de creación: {{$comentarios->created_at}}</li>
+        <a href="{{ route('comentario.edit', $comentarios->id)}}"> Editar Comentario</a>
+        
+        <form action="{{ route('comentario.destroy', $comentarios)}}" method="POST">
+            @csrf 
+            @method('DELETE')
+            <input type="submit" value="Borrar comentario">
+        </form>
+
         <p></p>
         @endforeach
     </ul>
