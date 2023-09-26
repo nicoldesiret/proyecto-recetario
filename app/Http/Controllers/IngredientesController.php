@@ -51,9 +51,9 @@ class IngredientesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ingredientes $ingredientes)
+    public function show(Ingredientes $ingrediente)
     {
-        return view('ingredientes/ingredientes-show', compact('ingredientes'));
+        return view('ingredientes/ingrediente-show', compact('ingrediente'));
         //$imngrediente= Ingredientes::find($id);
         //dd($ingredientes); para probar que funciona
     }
@@ -61,24 +61,32 @@ class IngredientesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ingredientes $ingredientes)
+    public function edit(Ingredientes $ingrediente)
     {
-        //
+        //se envia un formulario con los campos llenos
+        return view('ingredientes/ingrediente-edit', compact('ingrediente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ingredientes $ingredientes)
+    public function update(Request $request, Ingredientes $ingrediente)
     {
-        //
+        //se actualizan los cambios del edit
+        $ingrediente->nombre=$request->nombre;
+        $ingrediente->cantidad=$request->cantidad;
+        $ingrediente->unidadMedida=$request->unidadMedida;
+        $ingrediente->save();
+        return redirect()->route('ingredientes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingredientes $ingredientes)
+    public function destroy(Ingredientes $ingrediente)
     {
-        //
+        $ingrediente->delete();
+        return redirect()->route('ingredientes.index');
+
     }
 }

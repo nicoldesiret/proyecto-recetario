@@ -8,10 +8,11 @@
 <body>
     <h1>
         Detalle de Ingrediente:
-        {{ $ingredientes->nombre}}
+        {{ $ingrediente->nombre}}
     </h1>
 
-    <h2>Referencia: {{$ingredientes->referencia}}</h2>
+    <h2>Cantidad: {{$ingrediente->cantidad}}</h2>
+    <h2>Cantidad: {{$ingrediente->unidadMedida}}</h2>
     
 </body>
 </html>

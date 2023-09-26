@@ -10,10 +10,16 @@
 
 <ul>
     @foreach ($ingredientes as $ingredientes)
-    <li> <a href="{{route('ingredientes.show', $ingredientes->id)}}" > </li>
-    <li>Nombre: {{$ingredientes->nombre}}</li>
+    <a href="{{route('ingredientes.show', $ingredientes->id)}}" >
+    <li>Nombre: {{$ingredientes->nombre}}</li> </a>
     <li>Cantidad: {{$ingredientes->cantidad}}</li>
-    <li>Unidad de Medida:  {{$ingredientes->unidadMedida}}</li><br>
+    <li>Unidad de Medida:  {{$ingredientes->unidadMedida}}</li>
+    <li> <a href="{{route('ingredientes.edit', $ingredientes)}}" >Editar </a></li> 
+    <form action="{{route('ingredientes.destroy', $ingredientes)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Borrar">
+    </form><br>
     @endforeach
 </ul>
 </body>
