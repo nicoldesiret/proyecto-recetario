@@ -25,3 +25,17 @@ Route::resource('comentario', ComentariosController::class);  #Aquí debes poner
 Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
 
+Route::get('prueba', function(){
+    return view('prueba');
+});
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

@@ -6,7 +6,7 @@
     <title>Listado de comentarios en la página</title>
 </head>
 <body>
-    <h1>AQUÍ SE ENCUENTRAN LOS COMENTARIOS</h1>
+    <h1>LISTA DE COMENTARIOS LOS COMENTARIOS</h1>
 
     <ul>
           
