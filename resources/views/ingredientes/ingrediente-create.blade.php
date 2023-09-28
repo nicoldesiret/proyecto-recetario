@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Agregar Ingredientes</h1>
-    <form action = "{{ route=('ingredientes.store') }}" method="POST">
+    <form action = "/ingredientes" method="POST">
         @csrf 
         <label for="nombre"> Nombre</label><br>
         <input type="text" name="nombre"><br>

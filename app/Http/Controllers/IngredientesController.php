@@ -45,7 +45,7 @@ class IngredientesController extends Controller
         $ingrediente->unidadMedida = $request->unidadMedida;
         $ingrediente->save();
 
-        return redirect('ingredientes.index');
+        return redirect()->route('ingredientes.index');
     }
 
     /**
