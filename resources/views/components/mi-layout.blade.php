@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>BIENVENIDOS A MI SITIO</h1>
-    {{ $slot }}
+no
 </body>
 </html>

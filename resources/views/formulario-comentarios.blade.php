@@ -9,7 +9,7 @@
     <h1>BIENVENIDO, REALIZA TU COMENTARIO</h1>
 
     @csrf 
-    <form method="POST" action="{{route('comentario.store')}}"> 
+    <form method="POST" action="{{route('comentarios.store')}}"> 
         @csrf
         <h2>Ingresa tu comentario</h2>
         <label for="comentario">Comentario:</label><br>

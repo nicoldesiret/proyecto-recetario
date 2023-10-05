@@ -19,8 +19,15 @@ class ComentariosController extends Controller
         #>>   Comentarios::where('nombre', 'Lili')->get(); 
         #Ese tiene la misma función pero es más para una selección
         #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicas.
-        return view('listado-comentarios', compact('allcomentarios'));
+
+        return view('pagina-comentarios', compact('allcomentarios'));
+
+        #return view('listado-comentarios', compact('allcomentarios'));
     }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
