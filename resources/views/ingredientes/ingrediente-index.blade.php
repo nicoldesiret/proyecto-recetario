@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
     @endforeach
 </ul>
 </body>
-</html>-->
+</html>--}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,7 @@
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h2 data-aos="fade-up">Ingredientes</h2>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="{{route('ingredientes.create', $ingredientes)}}" class="btn-book-a-table">Agregar Ingrediente</a>
+            <a href="{{route('ingredientes.create')}}" class="btn-book-a-table">Agregar Ingrediente</a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
@@ -131,13 +131,13 @@
 
   <main id="main">
         <ul>
-            @foreach ($ingrediente as $ingredientes)
-            <a href="{{route('ingredientes.show', $ingredientes->id)}}" >
-            <li>Nombre: {{$ingredientes->nombre}}</li> </a>
-            <li>Cantidad: {{$ingredientes->cantidad}}</li>
-            <li>Unidad de Medida:  {{$ingredientes->unidadMedida}}</li>
-            <li> <a href="{{route('ingredientes.edit', $ingredientes)}}" >Editar </a></li> 
-            <form action="{{route('ingredientes.destroy', $ingredientes)}}" method="POST">
+            @foreach ($ingredientes as $ingrediente)
+            <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
+            <li>Nombre: {{$ingrediente->nombre}}</li> </a>
+            <li>Cantidad: {{$ingrediente->cantidad}}</li>
+            <li>Unidad de Medida:  {{$ingrediente->unidadMedida}}</li>
+            <li> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
+            <form action="{{route('ingredientes.destroy', $ingrediente)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="Borrar">
