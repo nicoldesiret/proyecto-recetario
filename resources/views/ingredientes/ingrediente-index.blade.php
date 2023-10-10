@@ -148,9 +148,6 @@
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
-        
-
-
         <div class="col-md-6">
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-food flex-shrink-0"></i>
@@ -159,10 +156,16 @@
                 <p>A108 Adam Street, New York, NY 535022</p>
               </div>
             </div>
-          </div><!-- End Info Item -->
-
-         
-      </div>
+          </div><!-- End Info Item --> <br>
+        <div class="info-item  d-flex align-items-center">
+                  <i class="icon bi bi-food flex-shrink-0"></i>
+                  <div>
+                    <h3>Our Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+                </div>
+              </div><!-- End Info Item --> <br>
+          </div>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
