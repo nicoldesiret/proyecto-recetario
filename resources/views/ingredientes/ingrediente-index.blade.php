@@ -128,35 +128,46 @@
       </div>
     </div>
   </section><!-- End Hero Section -->
-
   <main id="main">
-        <ul>
+
+        
             @foreach ($ingredientes as $ingrediente)
             <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
-            <li>Nombre: {{$ingrediente->nombre}}</li> </a>
-            <li>Cantidad: {{$ingrediente->cantidad}}</li>
-            <li>Unidad de Medida:  {{$ingrediente->unidadMedida}}</li>
-            <li> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
+            <h3>Nombre: {{$ingrediente->nombre}}</h3> </a>
+            <p>Cantidad: {{$ingrediente->cantidad}}</p>
+            <p>Unidad de Medida:  {{$ingrediente->unidadMedida}}</p>
+            <p> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
             <form action="{{route('ingredientes.destroy', $ingrediente)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="Borrar">
             </form><br>
             @endforeach
-        </ul>
+        
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
         <div class="col-md-6">
+       {{-- @foreach ($ingredientes as $ingrediente)
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-food flex-shrink-0"></i>
               <div>
-                <h3>Our Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+              <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
+              <h3>Nombre: {{$ingrediente->nombre}}</h3> </a>
+              <p>Cantidad: {{$ingrediente->cantidad}}</p>
+              <p>Unidad de Medida:  {{$ingrediente->unidadMedida}}</p>
+              <p> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
+              <form action="{{route('ingredientes.destroy', $ingrediente)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <input type="submit" value="Borrar">
+              </form><br>
               </div>
             </div>
           </div><!-- End Info Item --> <br>
+          @endforeach--}}
+          
         <div class="info-item  d-flex align-items-center">
                   <i class="icon bi bi-food flex-shrink-0"></i>
                   <div>
@@ -165,6 +176,37 @@
                   </div>
                 </div>
               </div><!-- End Info Item --> <br>
+                
+        <div class="info-item  d-flex align-items-center">
+                  <i class="icon bi bi-food flex-shrink-0"></i>
+                  <div>
+                    <h3>Our Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+                </div>
+              </div><!-- End Info Item --> <br>
+
+        <div class="info-item  d-flex align-items-center">
+                  <i class="icon bi bi-food flex-shrink-0"></i>
+                  <div>
+                    <h3>Our Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+                </div>
+              </div><!-- End Info Item --> <br>
+
+  
+        <div class="info-item  d-flex align-items-center">
+                  <i class="icon bi bi-food flex-shrink-0"></i>
+                  <div>
+                    <h3>Our Address</h3>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+                </div>
+              </div><!-- End Info Item --> <br>
+
+
+
           </div>
     </section><!-- End Contact Section -->
 
