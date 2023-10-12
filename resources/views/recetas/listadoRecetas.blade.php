@@ -28,7 +28,26 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
+  <!-- Favicons 
+  <link href="/assetsE/img/favicon.png" rel="icon">
+  <link href="/assetsE/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  Google Fonts 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   Vendor CSS Files 
+  <link href="/assetsE/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/assetsE/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assetsE/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assetsE/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assetsE/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assetsE/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <Template Main CSS File 
+  <link href="/assetsE/css/style.css" rel="stylesheet">
+
+
+  =======================================================
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
@@ -52,7 +71,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#chefs">Chefs</a></li>
@@ -109,9 +128,45 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Recetas</h2>
+          <p>Conoce nuestras <span>mejores recetas</span></p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 entries" data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us">
+              <h4>Book a Table</h4>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1>Listado</h1>
 
-        <button>Agregar nueva receta</button>
+        <a href="{{route('recetas.create')}}">Agregar nueva receta</a>
 
         <ul>
             @foreach($recetas as $receta)
@@ -140,7 +195,7 @@
             @endforeach
           </ul>
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End Blog Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
