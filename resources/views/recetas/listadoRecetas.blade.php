@@ -28,25 +28,7 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
 
-  <!-- Favicons 
-  <link href="/assetsE/img/favicon.png" rel="icon">
-  <link href="/assetsE/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  Google Fonts 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-   Vendor CSS Files 
-  <link href="/assetsE/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/assetsE/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assetsE/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assetsE/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/assetsE/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assetsE/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <Template Main CSS File 
-  <link href="/assetsE/css/style.css" rel="stylesheet">
-
-
+  <!---
   =======================================================
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -70,132 +52,78 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#recetas">Recetas</a></li>
+          <li><a href="#">Desayunos</a></li>
+          <li><a href="#">Comidas</a></li>
+          <li><a href="#">Cenas</a></li>
+          <li><a href="#">Postres</a></li>
+          <li><a href="#">Bebidas</a></li>
+          <li><a href="#">Planificador</a></li>
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+      <a class="btn-book-a-table" href="{{route('recetas.create')}}">Agregar nueva receta</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center section-bg">
-    <div class="container">
-      <div class="row justify-content-between gy-5">
-        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
-          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div>
-        </div>
-        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
-        </div>
-      </div>
-    </div>
-  </section><!-- End Hero Section -->
-
+  
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
+    <section id="recetas" class="about">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-header">
+          <br><br>
           <h2>Recetas</h2>
-          <p>Conoce nuestras <span>mejores recetas</span></p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-7 entries" data-aos="fade-up" data-aos-delay="150">
-            <div class="call-us">
-              <h4>Book a Table</h4>
-              <p>+1 5589 55488 55</p>
-            </div>
-          </div>
-          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-            <div class="content ps-0 ps-lg-5">
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <h1>Listado</h1>
-
-        <a href="{{route('recetas.create')}}">Agregar nueva receta</a>
-
+          <p>Conoce nuestras <span>Mejores recetas</span></p>
+        </div>        
         <ul>
-            @foreach($recetas as $receta)
-            
-                <h2>----------------------------------------------------------</h2>
-                <h2>
-                    <a href="{{route('recetas.show', $receta->id)}}">
-                                      {{$receta->titulo}}
-                    </a>
-                </h2>
-                <li>Descripción: {{$receta->descripcion}}</li>
-                <li>Tipo de comida: {{$receta->tipoComida}}</li>
+          @foreach($recetas as $receta)
+              <div class="row gy-4">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="150">
+                  <div class="call-us d-flex flex-column justify-content-center align-items-center">
+                    <h4>
+                      <a href="{{route('recetas.show', $receta->id)}}">
+                        {{$receta->titulo}}
+                      </a>
+                    </h4>
 
-                <a href="{{route('recetas.edit', $receta->id)}}">
-                    Editar
-                </a>
+                    <div>
+                      <img src="assets/img/blog/recetas.jpg" alt="" class="img-fluid">
+                    </div>
 
-                <form action="{{route('recetas.destroy', $receta)}}" method=POST>
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="Borrar">
-                </form>
-                <h2>----------------------------------------------------------</h2>
+                    <div class="menu">
+                      <ul class="nav nav-tabs d-flex justify-content-center aos-init aos-animate">
+                        <p class="nav-link"><li class="nav-item"><i class="bi bi-person"></i><a href="blog-single.html">Usuario</a></li></p>
+                        <p class="nav-link"><li class="nav-item"><li class="nav-item"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$receta->timestamps}}</time></a></li></p>
+                        <p class="nav-link"><li class="nav-item"><li class="nav-item"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">Comentarios</a></li></p>
+                        <p class="nav-link"><li class="nav-item"><i class="bi bi-pencil-square"></i><a href="{{route('recetas.edit', $receta->id)}}">Editar</a></li></p>
+                      </ul>
+                    </div>
 
-
-            @endforeach
-          </ul>
+                    <br>
+                    <div class="content">
+                      <p>Tipo de comida: {{$receta->tipoComida}}</p>
+                      <h10>{{$receta->descripcion}}</h10><br>
+                    </div>
+                    <br>
+                    
+                    <div class="book-a-table">
+                      <form action="{{route('recetas.destroy', $receta)}}" class="php-email-form" method=POST>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Borrar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>                
+          @endforeach
+        </ul>
       </div>
-    </section><!-- End Blog Section -->
+    </section><!-- End About Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
@@ -203,27 +131,40 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-box">
-              <h3>Why Choose Yummy?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Why Box -->
-
           <div class="col-lg-8 d-flex align-items-center">
             <div class="row gy-4">
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                <p>
+                                <a href="{{route('recetas.show', $receta->id)}}">
+                                              {{$receta->titulo}}
+                                </a>
+                              </p>
+
+                              <div class="content">
+                                <ul>
+                                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
+                                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                                </ul>
+                              </div>
+
+                              <div >
+                                <h4>{{$receta->descripcion}}</h4><br>
+                                <h10>Tipo de comida: {{$receta->tipoComida}}</h10>
+                              </div>
+
+                              <div class="content">
+                                <a href="{{route('recetas.edit', $receta->id)}}">
+                                    Editar
+                                </a>
+                                <form action="{{route('recetas.destroy', $receta)}}" method=POST>
+                                  @csrf
+                                  @method('DELETE')
+                                  <input type="submit" value="Borrar">
+                                </form>
+                              </div> 
                 </div>
               </div><!-- End Icon Box -->
 
@@ -295,9 +236,10 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Menu</h2>
-          <p>Check Our <span>Yummy Menu</span></p>
+          <h2>Recetas</h2>
+          <p>Conoce nuestras <span>mejores recetas</span></p>
         </div>
+
 
         <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
@@ -876,64 +818,7 @@
       </div>
     </section><!-- End Chefs Section -->
 
-    <!-- ======= Book A Table Section ======= -->
-    <section id="book-a-table" class="book-a-table">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Book A Table</h2>
-          <p>Book <span>Your Stay</span> With Us</p>
-        </div>
-
-        <div class="row g-0">
-
-          <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);" data-aos="zoom-out" data-aos-delay="200"></div>
-
-          <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-              <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Book a Table</button></div>
-            </form>
-          </div><!-- End Reservation Form -->
-
-        </div>
-
-      </div>
-    </section><!-- End Book A Table Section -->
+    
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery section-bg">

@@ -1,30 +1,15 @@
-<h1>Listado</h1>
-
-    <button>Agregar nueva receta</button>
-    
-    <ul>
-        @foreach($recetas as $receta)
+<h1>Nueva receta</h1>
+    <form action="/recetas" method="POST">
+        @csrf
         
-            <h2>----------------------------------------------------------</h2>
-            <h2>
-                <a href="{{route('recetas.show', $receta->id)}}">
-                                   {{$receta->titulo}}
-                </a>
-            </h2>
-            <li>Descripción: {{$receta->descripcion}}</li>
-            <li>Tipo de comida: {{$receta->tipoComida}}</li>
+        <label for="titulo">Titulo</label><br>
+        <input type="text" name="titulo"><br><br>
+        
+        <label for="descripcion">Descripción</label><br>
+        <textarea name="descripcion" rows="5"></textarea><br><br>
 
-            <a href="{{route('recetas.edit', $receta->id)}}">
-                Editar
-            </a>
-
-            <form action="{{route('recetas.destroy', $receta)}}" method=POST>
-                @csrf
-                @method('DELETE')
-                <input type="submit" value="Borrar">
-            </form>
-            <h2>----------------------------------------------------------</h2>
-
-
-        @endforeach
-    </ul>
+        <label for="tipoComida">Tipo de comida</label><br>
+        <input type="text" name="tipoComida"><br><br>
+        
+        <input type="submit" value="Enviar"> 
+    </form>
