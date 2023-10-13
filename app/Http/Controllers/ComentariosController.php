@@ -38,7 +38,7 @@ class ComentariosController extends Controller
 
     public function create()
     {
-        return view('formulario-comentarios');
+        return view('formulario-comentarios');   
         
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
