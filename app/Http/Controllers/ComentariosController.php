@@ -20,9 +20,12 @@ class ComentariosController extends Controller
         #Ese tiene la misma función pero es más para una selección
         #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicas.
 
-        return view('pagina-comentarios', compact('allcomentarios'));
+        #return view('pagina-comentarios', compact('allcomentarios'));
 
         #return view('listado-comentarios', compact('allcomentarios'));
+
+        return view('prueba-pagina', compact('allcomentarios'));
+        #AHORITA LO VUELVES A PONER EL RETURN VIEW LISTADO COMENTARIOSSS
     }
 
 
@@ -48,7 +51,8 @@ class ComentariosController extends Controller
             $comentarios->comentario = $request->comentario;  #Comentarios es por el nombre de la tabla ve en migrations
             $comentarios->calificacion=$request->calificacion;
             $comentarios->save();
-            return redirect()->route('comentario.index');
+            #return redirect()->route('listado-comentarios');
+            return redirect()->route('comentarios.index');
             #return redirect('/comentario');
             #return redirect()->back();   #El store solo sirve para guardar datos
     }
@@ -94,7 +98,7 @@ class ComentariosController extends Controller
     public function destroy(Comentarios $comentario)
     {
         $comentario->DELETE(); 
-        return redirect()->route('comentario.index');
+        return redirect()->route('comentarios.index');
         //
     }
 }

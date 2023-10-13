@@ -13,23 +13,28 @@
         @foreach ($allcomentarios as $comentarios)
 
 
-        <a href="{{ route('comentario.show', $comentarios->id)}}">
+        <a href="{{ route('comentarios.show', $comentarios->id)}}">
          {{$comentarios->id}}</a>
 
         <li>Comentario: {{ $comentarios->comentario }} </li>
 
         <li>Calificación: {{ $comentarios->calificacion}}</li>
         <li>Fecha de creación: {{$comentarios->created_at}}</li>
-        <a href="{{ route('comentario.edit', $comentarios->id)}}"> Editar Comentario</a>
+        <a href="{{ route('comentarios.edit', $comentarios->id)}}"> Editar Comentario</a>
         
-        <form action="{{ route('comentario.destroy', $comentarios)}}" method="POST">
+        <form action="{{ route('comentarios.destroy', $comentarios)}}" method="POST">
             @csrf 
             @method('DELETE')
             <input type="submit" value="Borrar comentario">
         </form>
 
+
+       
+
         <p></p>
         @endforeach
     </ul>
+    
+    <a href="{{ route('comentarios.create') }}">Regresar para comentar</a>
 </body>
 </html>
