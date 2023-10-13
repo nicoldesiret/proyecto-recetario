@@ -9,9 +9,15 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+
+
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!--  <link href="assets/img/favicon.png" rel="icon"> -->
+ <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+ <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+ <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+ 
+
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +25,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Yummy
@@ -69,8 +76,8 @@
 
       <!-- Agrega una imagen a la derecha -->
       <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-        <figure class="why-image">
-          <img src="assets/img/menu/probando-comida.jpg" alt="Descripción de la imagen">
+       <figure class="why-image">
+           <img src="{{ asset('assets/img/menu/probando-comida.jpg') }}" alt="Descripción de la imagen">
         </figure>
       </div>
     </div>
@@ -126,23 +133,77 @@
 
 
 
-    <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
-      <div class="container" data-aos="zoom-out">
 
-        <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->     
+<!-- ======= Stats Counter Section ======= -->
+<section id="stats-counter" class="stats-counter">
+  <div class="container" data-aos="zoom-out">
 
+    <div class="row gy-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <p>Comentarios</p>
         </div>
+      </div><!-- End Stats Item -->     
 
-      </div>
-    </section><!-- End Stats Counter Section -->
+    </div>
+
+  </div>
+
+</section><!-- End Stats Counter Section -->
+
+
+<!-- INICIO DE COMENTARIOS LISTADO -->
+<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@if (count($allcomentarios) > 0)
+    <ul class="comment-list">
+        @foreach ($allcomentarios as $comentario)
+        <a href="{{ route('comentarios.show', $comentario->id)}}">
+            ID: {{$comentario->id}}</a>
+            <li class="comment-item">
+                <div class="testimonial-content">
+                    <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        {{ $comentario->comentario }}
+                        <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+
+                    <!-- Agrega estrellas basadas en la calificación -->
+                    <div class="stars">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $comentario->calificacion)
+                                <i class="fas fa-star"></i>
+                            @else
+                                <i class="far fa-star"></i>
+                            @endif
+                        @endfor
+                        <p>Calificación: {{ $comentario->calificacion }} estrellas</p>
+                    </div>
+                </div>
+                <!-- Agrega enlaces para editar y eliminar -->
+                <div class="actions">
+                    <a href="{{ route('comentarios.edit', $comentario->id) }}" class="edit-link">Editar Comentario</a>
+                    <form action="{{ route('comentarios.destroy', $comentario->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-button">Borrar comentario</button>
+                    </form>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+@else
+<center>
+    <h1>-</h1>
+    <p>Aún no existen comentarios.</p>
+   
+</center>
+
+@endif
+
 
 
     <!-- ======= Gallery Section ======= -->
@@ -247,15 +308,15 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
 

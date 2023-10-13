@@ -22,7 +22,8 @@ class ComentariosController extends Controller
 
         #return view('pagina-comentarios', compact('allcomentarios'));
 
-        #return view('listado-comentarios', compact('allcomentarios'));
+        #return view('nuevo-listado-comentarios', compact('allcomentarios'));
+        #return view('pagina-comentarios', compact('allcomentarios'));
 
         return view('prueba-pagina', compact('allcomentarios'));
         #AHORITA LO VUELVES A PONER EL RETURN VIEW LISTADO COMENTARIOSSS
@@ -38,7 +39,11 @@ class ComentariosController extends Controller
 
     public function create()
     {
-        return view('formulario-comentarios');   
+
+       $allcomentarios = Comentarios::all();
+        #return view('formulario-comentarios');  
+        return view('prueba-pagina' , compact('allcomentarios')); 
+        #return view('prueba-pagina');
         
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
@@ -52,7 +57,8 @@ class ComentariosController extends Controller
             $comentarios->calificacion=$request->calificacion;
             $comentarios->save();
             #return redirect()->route('listado-comentarios');
-            return redirect()->route('comentarios.index');
+            return redirect()->route('comentarios.create');
+            #return redirect()->route('comentarios.index');
             #return redirect('/comentario');
             #return redirect()->back();   #El store solo sirve para guardar datos
     }

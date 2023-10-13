@@ -8,7 +8,7 @@
 <body>
 
 <h1> EDITAR </h1>
-<form method="POST" action="{{route('comentario.update', $comentario)}}"> 
+<form method="POST" action="{{route('comentarios.update', $comentario)}}"> 
         @csrf 
         @method('PATCH')
         <h2>Ingresa tu comentario</h2>
