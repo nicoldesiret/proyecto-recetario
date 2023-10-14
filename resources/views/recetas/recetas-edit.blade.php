@@ -45,7 +45,7 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-            <li><a href="#recetas">Recetas</a></li>
+            <li><a href="{{route('recetas.index')}}">Recetas</a></li>
             <li><a href="#">Desayunos</a></li>
             <li><a href="#">Comidas</a></li>
             <li><a href="#">Cenas</a></li>
@@ -61,16 +61,62 @@
 
         </div>
     </header><!-- End Header -->
-    <h1>{{$receta->titulo}}</h1>
+    <br><br>
+  <main id="main">
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Edita tu receta</h2>
+          <p>¿Tu receta de <span>{{$receta->titulo}}</span> necesita modificaciones?</p>
+        </div>
+
+        <div class="row g-0">
+
+          <div class="col-lg-4 reservation-img" style="background-image: url(/assets/img/recetario/nuevareceta.jpg);"></div>
+
+          <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+            <form action="{{route('recetas.update', $receta)}}" method="POST" class="php-email-form">
+                @csrf
+                @method('PATCH')
+                <div class="row gy-4">
+                  <div class="col-lg-12">
+                    <input type="text" name="titulo" class="form-control" placeholder="Nombre del platillo"value="{{$receta->titulo}}" >
+                    <div class="validate"></div>
+                  </div>
+                  
+                  <div class="col-lg-12">
+                    <input type="text" name="tipoComida" class="form-control" placeholder="Tipo de platillo" value="{{$receta->tipoComida}}">
+                    <div class="validate"></div>
+                  </div>
+                  
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="descripcion" rows="5" placeholder="Describe el platillo">{{$receta->descripcion}}</textarea>
+                    <div class="validate"></div>
+                  </div>
+
+                  <div class="text-center"><button type="submit">Guardar</button></div>
+                </div>
+            </form>
+          </div><!-- End Reservation Form -->
+
+        </div>
+
+      </div>
+    </section><!-- End Book A Table Section -->
+
+  </main><!-- End #main -->
+
+    <h1></h1>
     <form action="{{route('recetas.update', $receta)}}" method="POST">
-        @csrf
-        @method('PATCH')
+        
 
         <label for="titulo">Titulo</label>
-        <input type="text" name="titulo" value="{{$receta->titulo}}"><br><br>
+        <input type="text" name="titulo" ><br><br>
         
         <label for="descripcion">Descripción</label>
-        <input type="text" name="descripcion" value="{{$receta->descripcion}}"><br><br>
+        <input type="text" name="descripcion" "><br><br>
 
         <label for="tipoComida">Tipo de comida</label>
         <input type="text" name="tipoComida" value="{{$receta->titulo}}"><br><br>

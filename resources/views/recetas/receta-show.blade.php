@@ -37,31 +37,45 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>Denily<span>.</span></h1>
-        </a>
+        <div class="container d-flex align-items-center justify-content-between">
 
-        <nav id="navbar" class="navbar">
-            <ul>
-            <li><a href="#recetas">Recetas</a></li>
-            <li><a href="#">Desayunos</a></li>
-            <li><a href="#">Comidas</a></li>
-            <li><a href="#">Cenas</a></li>
-            <li><a href="#">Postres</a></li>
-            <li><a href="#">Bebidas</a></li>
-            <li><a href="#">Planificador</a></li>
-            </ul>
-        </nav><!-- .navbar -->
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Denily<span>.</span></h1>
+      </a>
 
-        <a class="btn-book-a-table" href="{{route('recetas.create')}}">Agregar nueva receta</a>
-        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{route('recetas.index')}}">Recetas</a></li>
+          <li><a href="#">Desayunos</a></li>
+          <li><a href="#">Comidas</a></li>
+          <li><a href="#">Cenas</a></li>
+          <li><a href="#">Postres</a></li>
+          <li><a href="#">Bebidas</a></li>
+          <li><a href="#">Planificador</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="btn-book-a-table" href="{{route('recetas.create')}}">Agregar nueva receta</a>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
     </header><!-- End Header -->
-    <h1>Detalles de Receta: {{$receta->titulo}}</h1>
-    <h2>Descripción: {{$receta->descripcion}}</h2>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center section-bg">
+        <div class="container">
+        <div class="row justify-content-between gy-5">
+            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+            <h2>{{$receta->titulo}}</h2>
+            <p>{{$receta->descripcion}}</p>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+            <img src="/assets/img/hero-img.png" class="img-fluid" alt="" >
+            </div>
+        </div>
+        </div>
+    </section><!-- End Hero Section -->
 </body>
 </html>
