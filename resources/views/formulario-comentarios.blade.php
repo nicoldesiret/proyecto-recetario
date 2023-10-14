@@ -90,13 +90,19 @@
   
 </section><!-- End Why Us Section -->
 
-<div class="text-center">
-    <span style="font-weight: bold; font-size: 24px;">¿QUÉ OPINAS?</span>
+<!-- ======= Stats Counter Section ======= -->
+<section id="stats-counter" class="stats-counter">
+  <div class="container" data-aos="zoom-out">
+
+    <div class="row gy-4">
+    <div class="text-center">
+    <span style="font-weight: bold; font-size: 30px; color: #ffffff;">¿QUÉ OPINAS?</span>
+
 </div>
-<!-- Agrega una imagen a continuación -->
-<img src="{{ asset('assets/img/menu/probar-new.jpg') }}" alt="Descripción de la imagen">
 
 <!-- ======= COMENTARIO ======= -->
+
+
 
 <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -136,11 +142,18 @@
         </form>
 
 
-    </section><!-- End Contact Section -->
+    </section><!-- End COMENTARIOS -->
 
 
 
 
+ 
+
+    </div>
+
+  </div>
+
+</section><!-- End Stats Counter Section -->
 
 <!-- ======= Stats Counter Section ======= -->
 <section id="stats-counter" class="stats-counter">

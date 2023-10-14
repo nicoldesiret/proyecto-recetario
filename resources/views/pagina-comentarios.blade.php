@@ -40,7 +40,51 @@
 <body>
 
   <!-- ======= Header ======= -->
-  
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Yummy<span>.</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
@@ -203,8 +247,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Recetas</h2>
-          <p>Nuevas <span>Recetas</span></p>
+          <h2>Our Menu</h2>
+          <p>Check Our <span>Yummy Menu</span></p>
         </div>
 
         <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
@@ -793,7 +837,48 @@
           <p>Book <span>Your Stay</span> With Us</p>
         </div>
 
-              <div class="text-center"><a href="{{route('comentarios.create')}}" >Escribir comentario</a></div>
+        <div class="row g-0">
+
+          <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);" data-aos="zoom-out" data-aos-delay="200"></div>
+
+          <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Book a Table</button></div>
             </form>
           </div><!-- End Reservation Form -->
 
