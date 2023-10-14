@@ -50,16 +50,45 @@
 
 <body>
 
+
+ <!-- ======= Header ======= -->
+
+
+ <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{{ asset('assets/img/favicon.jpeg') }}" alt="Logo">
+        <h1>Deliny<span>.</span></h1>
+      </a>
+
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#why-us">Comentarios</a></li>
+          <li><a href="#gallery">Más recetas</a></li>
+          <li><a href="#contact">Envía tu opinión</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+
+<section id="why-us" class="why-us section-bg">
 <div class="section-header">
-    <p>  C O M E N T A R I O S </p>
-    
           <p>Nos importa tu <span>opinión</span></p>
         </div>
 
 
         <!--INICIO NOS IMPORTA -->
 
-        <section id="why-us" class="why-us section-bg">
+  
   <div class="container" data-aos="fade-up">
     <div class="row gy-4">
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -82,6 +111,13 @@
       </div>
     </div>
   </div>
+
+  <div class="text-center">
+    <a href="{{ route('comentarios.create') }}" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; border-radius: 20px; text-decoration: none;">Ir a la Ruta</a>
+</div>
+
+
+  
 </section><!-- End Why Us Section -->
 
 

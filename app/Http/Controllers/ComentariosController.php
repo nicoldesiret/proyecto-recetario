@@ -39,10 +39,9 @@ class ComentariosController extends Controller
 
     public function create()
     {
-
-       $allcomentarios = Comentarios::all();
+        $allcomentarios = Comentarios::all();
         #return view('formulario-comentarios');  
-        return view('prueba-pagina' , compact('allcomentarios')); 
+        return view('formulario-comentarios', compact('allcomentarios')); 
         #return view('prueba-pagina');
         
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
