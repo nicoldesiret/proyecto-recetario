@@ -56,7 +56,7 @@ class ComentariosController extends Controller
             $comentarios->calificacion=$request->calificacion;
             $comentarios->save();
             #return redirect()->route('listado-comentarios');
-            return redirect()->route('comentarios.create');
+            return redirect()->route('comentarios.index');
             #return redirect()->route('comentarios.index');
             #return redirect('/comentario');
             #return redirect()->back();   #El store solo sirve para guardar datos

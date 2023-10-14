@@ -23,6 +23,8 @@ Route::resource('comentarios', ComentariosController::class);
 #'comentario' puede ser lo que yo quiera pero, también tiene que estár 
 #en action="/comentario"> esto en formulario, dentro del action tiene que coincidir. 
 
+
+
 Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
 

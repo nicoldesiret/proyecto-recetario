@@ -113,59 +113,12 @@
   </div>
 
   <div class="text-center">
-    <a href="{{ route('comentarios.create') }}" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; border-radius: 20px; text-decoration: none;">Ir a la Ruta</a>
+    <a href="{{ route('comentarios.create') }}" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; border-radius: 20px; text-decoration: none;">Da click para comentar</a>
 </div>
 
 
   
 </section><!-- End Why Us Section -->
-
-
-
-
-
-
-<!-- ======= COMENTARIO ======= -->
-
-<section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-      
-        <form method="POST" action="{{ route('comentarios.store') }}" class="php-email-form p-3 p-md-4">
-        @csrf 
-            <div class="row">
-            <div class="col-xl-12 form-group">
-                <textarea name="comentario" class="form-control" placeholder="Tu Comentario" rows="5" required></textarea>
-            </div>
-
-            <h2>Ingresa la calificación de la receta</h2>
-        <div class="form-group">
-            <label for="calificacion">Calificación:</label>
-            <select name="calificacion" id="calificacion" class="form-control">
-                <option value="5">Excelente</option>
-                <option value="4">Muy bueno</option>
-                <option value="3">Bueno</option>
-                <option value="2">Regular</option>
-                <option value="1">Malo</option>
-            </select>
-        </div>
-        <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">¡Tu comentario y calificación han sido enviados! ¡Gracias!</div>
-        </div>
-
-
-        </div>
-        <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">¡Tu comentario ha sido enviado! ¡Gracias!</div>
-        </div>
-        <div class="text-center"><button type="submit">Enviar Opinión</button></div>
-        </form>
-
-
-    </section><!-- End Contact Section -->
 
 
 
@@ -211,9 +164,9 @@
                     <div class="stars">
                         @for ($i = 1; $i <= 5; $i++)
                             @if ($i <= $comentario->calificacion)
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star" style="color: goldenrod;"></i>
                             @else
-                                <i class="far fa-star"></i>
+                                <i class="far fa-star" style="color:goldenrod;"></i>
                             @endif
                         @endfor
                         <p>Calificación: {{ $comentario->calificacion }} estrellas</p>

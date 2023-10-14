@@ -107,16 +107,16 @@
 <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
       
-        <form method="POST" action="{{ route('comentarios.store') }}" class="php-email-form p-3 p-md-4">
+        <form method="POST" action="{{ route('comentarios.store') }}">
         @csrf 
+        <h2 style="font-weight: bold; font-size: 30px; color: #ffffff;" >Ingresa tu opinión</h2>
             <div class="row">
             <div class="col-xl-12 form-group">
                 <textarea name="comentario" class="form-control" placeholder="Tu Comentario" rows="5" required></textarea>
             </div>
 
-            <h2>Ingresa la calificación de la receta</h2>
         <div class="form-group">
-            <label for="calificacion">Calificación:</label>
+            <label style="font-weight: bold; color: #ffffff;" for="calificacion">Calificación:</label>
             <select name="calificacion" id="calificacion" class="form-control">
                 <option value="5">Excelente</option>
                 <option value="4">Muy bueno</option>
@@ -125,20 +125,12 @@
                 <option value="1">Malo</option>
             </select>
         </div>
-        <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">¡Tu comentario y calificación han sido enviados! ¡Gracias!</div>
+
+        <div class="text-center">
+    <button type="submit" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; border: none; border-radius: 20px; cursor: pointer;">Enviar Opinión</button>
         </div>
 
 
-        </div>
-        <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">¡Tu comentario ha sido enviado! ¡Gracias!</div>
-        </div>
-        <div class="text-center"><button type="submit">Enviar Opinión</button></div>
         </form>
 
 
