@@ -66,9 +66,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#why-us">Comentarios</a></li>
+          <li><a href="#why-us">Envía tu comentario</a></li>
+          <li><a href="#stats-counter">Todos los comentarios</a></li>
           <li><a href="#gallery">Más recetas</a></li>
-          <li><a href="#contact">Envía tu opinión</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -126,60 +126,60 @@
 
 <!-- ======= Stats Counter Section ======= -->
 <section id="stats-counter" class="stats-counter">
+
   <div class="container" data-aos="zoom-out">
 
     <div class="row gy-4">
 
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <p>Comentarios</p>
-        </div>
-      </div><!-- End Stats Item -->     
+    <div class="text-center">
+    <span style="font-weight: bold; font-size: 30px; color: #ffffff;">COMENTARIOS</span>
+    </div>   
 
     </div>
 
   </div>
-
-</section><!-- End Stats Counter Section -->
+<!-- End Stats Counter Section -->
 
 
 <!-- INICIO DE COMENTARIOS LISTADO -->
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 @if (count($allcomentarios) > 0)
     <ul class="comment-list">
         @foreach ($allcomentarios as $comentario)
-        <a href="{{ route('comentarios.show', $comentario->id)}}">
-            ID: {{$comentario->id}}</a>
+            <a href="{{ route('comentarios.show', $comentario->id)}}" style="color: white">
+                ID: {{$comentario->id}} (Click para más información)
+            </a>
             <li class="comment-item">
-                <div class="testimonial-content">
-                    <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        {{ $comentario->comentario }}
-                        <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
+                <div style="background-color: white; border-radius: 10px; padding: 20px; margin: 10px; text-align: center;">
+                    <div class="testimonial-content">
+                        <p>
+                            <i class="bi bi-quote quote-icon-left"></i>
+                            {{ $comentario->comentario }}
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
 
-                    <!-- Agrega estrellas basadas en la calificación -->
-                    <div class="stars">
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $comentario->calificacion)
-                                <i class="fas fa-star" style="color: goldenrod;"></i>
-                            @else
-                                <i class="far fa-star" style="color:goldenrod;"></i>
-                            @endif
-                        @endfor
-                        <p>Calificación: {{ $comentario->calificacion }} estrellas</p>
+                        <!-- Agrega estrellas basadas en la calificación -->
+                        <div class="stars">
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $comentario->calificacion)
+                                    <i class="fas fa-star" style="color: goldenrod;"></i>
+                                @else
+                                    <i class="far fa-star" style="color: goldenrod;"></i>
+                                @endif
+                            @endfor
+                            <p>Calificación: {{ $comentario->calificacion }} estrellas</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Agrega enlaces para editar y eliminar -->
-                <div class="actions">
-                    <a href="{{ route('comentarios.edit', $comentario->id) }}" class="edit-link">Editar Comentario</a>
-                    <form action="{{ route('comentarios.destroy', $comentario->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="delete-button">Borrar comentario</button>
-                    </form>
+                    <!-- Agrega enlaces para editar y eliminar -->
+                    <div class="actions">
+                        <a href="{{ route('comentarios.edit', $comentario->id) }}" class="edit-link">Editar Comentario</a>
+                        <form action="{{ route('comentarios.destroy', $comentario->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button">Borrar comentario</button>
+                        </form>
+                    </div>
                 </div>
             </li>
         @endforeach
@@ -188,10 +188,11 @@
 <center>
     <h1>-</h1>
     <p>Aún no existen comentarios.</p>
-   
 </center>
-
 @endif
+
+
+</section> <!--FINAL DE SECCIÓN -->
 
 
 
@@ -200,26 +201,55 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>gallery</h2>
-          <p>Check <span>Our Gallery</span></p>
+          <h2>Recetas</h2>
+          <p>Encuentra más recetas en <span> DELINY </span></p>
         </div>
 
         <div class="gallery-slider swiper">
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
+
+          <div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-1.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-1.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+<div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-2.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-2.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+<div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-3.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-3.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+<div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-4.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-4.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+<div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-5.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-5.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+<div class="swiper-slide">
+    <a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/menu/menu-item-6.png') }}">
+        <img src="{{ asset('assets/img/menu/menu-item-6.png') }}" class="menu-img img-fluid" alt="">
+    </a>
+</div>
+
+
+           
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
     </section><!-- End Gallery Section -->
+
+
+
 
     
   </main><!-- End #main -->
@@ -232,10 +262,10 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div>
-            <h4>Address</h4>
+            <h4>Dirección</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022 - US<br>
+              Guadalajara, Jalisco <br>
+              México<br>
             </p>
           </div>
 
@@ -244,32 +274,22 @@
         <div class="col-lg-3 col-md-6 footer-links d-flex">
           <i class="bi bi-telephone icon"></i>
           <div>
-            <h4>Reservations</h4>
+            <h4>Contáctanos</h4>
             <p>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Teléfono:</strong> +1 5589 55488 55<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-clock icon"></i>
-          <div>
-            <h4>Opening Hours</h4>
-            <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
-            </p>
-          </div>
-        </div>
+       
 
         <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Follow Us</h4>
+          <h4>Siguenos en redes</h4>
           <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+           
           </div>
         </div>
 
@@ -278,7 +298,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Deliny</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

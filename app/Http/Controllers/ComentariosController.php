@@ -18,18 +18,11 @@ class ComentariosController extends Controller
         #allcomentarios lo nombré para quefueran todos los comentarios
         #>>   Comentarios::where('nombre', 'Lili')->get(); 
         #Ese tiene la misma función pero es más para una selección
-        #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicas.
-
-        #return view('pagina-comentarios', compact('allcomentarios'));
-
-        #return view('nuevo-listado-comentarios', compact('allcomentarios'));
-        #return view('pagina-comentarios', compact('allcomentarios'));
-
-        return view('prueba-pagina', compact('allcomentarios'));
+        #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicass
+        return view('nueva-pagina-comentarios', compact('allcomentarios'));
+        #return view('prueba-pagina', compact('allcomentarios'));
         #AHORITA LO VUELVES A PONER EL RETURN VIEW LISTADO COMENTARIOSSS
     }
-
-
 
 
 
@@ -93,7 +86,7 @@ class ComentariosController extends Controller
         $comentario->comentario=$request->comentario; 
         $comentario->calificacion=$request->calificacion; 
         $comentario->save();
-        return redirect()->route('comentario.index');
+        return redirect()->route('comentarios.index');
         //
     }
 
