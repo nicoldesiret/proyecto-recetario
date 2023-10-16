@@ -1,30 +1,3 @@
-{{--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>Ingredientes: Index</h1>
-
-<ul>
-    @foreach ($ingredientes as $ingredientes)
-    <a href="{{route('ingredientes.show', $ingredientes->id)}}" >
-    <li>Nombre: {{$ingredientes->nombre}}</li> </a>
-    <li>Cantidad: {{$ingredientes->cantidad}}</li>
-    <li>Unidad de Medida:  {{$ingredientes->unidadMedida}}</li>
-    <li> <a href="{{route('ingredientes.edit', $ingredientes)}}" >Editar </a></li> 
-    <form action="{{route('ingredientes.destroy', $ingredientes)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <input type="submit" value="Borrar">
-    </form><br>
-    @endforeach
-</ul>
-</body>
-</html>--}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Yummy Bootstrap Template - Index</title>
+  <title>Deliny - Ingredientes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,17 +24,19 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="assets/img/Logo.ico" type="image/x-icon">
+
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
+  {{-- =======================================================
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  ======================================================== --}}
 </head>
 
 <body>
@@ -70,18 +45,18 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="/ingredientes" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="assets/img/favicon.png" alt="Logo">
         <h1>Deliny<span>.</span></h1>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#events">Events</a></li>
+          <li><a href="/ingredientes">Inicio</a></li>
+          <li><a href="/ingredientes">Ingredientes</a></li>
+          <li><a href="#menu">Recetas</a></li>
+          <li><a href="#events">Comentarios</a></li>
           <li><a href="#chefs">Chefs</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -105,7 +80,7 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+      <a class="btn-book-a-table" href="#book-a-table">Únete a Deliny</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -130,84 +105,42 @@
   </section><!-- End Hero Section -->
   <main id="main">
 
-        
-            @foreach ($ingredientes as $ingrediente)
-            <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
-            <h3>Nombre: {{$ingrediente->nombre}}</h3> </a>
-            <p>Cantidad: {{$ingrediente->cantidad}}</p>
-            <p>Unidad de Medida:  {{$ingrediente->unidadMedida}}</p>
-            <p> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
-            <form action="{{route('ingredientes.destroy', $ingrediente)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input type="submit" value="Borrar">
-            </form><br>
-            @endforeach
-        
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
-        <div class="col-md-6">
-       {{-- @foreach ($ingredientes as $ingrediente)
+
+        <div class="row gy-4">
+          @foreach ($ingredientes as $ingrediente)
+          <div class="col-md-6">
             <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-food flex-shrink-0"></i>
+              <i class="icon bi bi-basket2-fill flex-shrink-0" ></i>
               <div>
-              <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
-              <h3>Nombre: {{$ingrediente->nombre}}</h3> </a>
-              <p>Cantidad: {{$ingrediente->cantidad}}</p>
-              <p>Unidad de Medida:  {{$ingrediente->unidadMedida}}</p>
-              <p> <a href="{{route('ingredientes.edit', $ingrediente)}}" >Editar </a></li> 
-              <form action="{{route('ingredientes.destroy', $ingrediente)}}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <input type="submit" value="Borrar">
-              </form><br>
+                <a href="{{route('ingredientes.show', $ingrediente->id)}}" >
+                  <p ><strong style="color:black" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">{{$ingrediente->nombre}}: </strong></a>
+                  <strong>{{$ingrediente->cantidad}} {{$ingrediente->unidadMedida}}</strong> </p>
+                  <p> <a href="{{route('ingredientes.edit', $ingrediente)}}" ><strong>Editar</strong> </a></li> 
+                    <form action="{{ route('ingredientes.destroy', $ingrediente) }}" method="POST" id="delete-form">
+                      @csrf
+                      @method('DELETE')
+                      <br>
+                      <button type="button" class="btn btn-danger" style="background-color:#CE1212;border-radius:20px;" onclick="mostrarConfirmacion()">
+                          <i class="bi bi-trash"></i> Borrar
+                      </button>
+                  </form>
+                  
+                  <script>
+                  function mostrarConfirmacion() {
+                      if (confirm('¿Estás seguro de que deseas borrar este ingrediente?')) {
+                          document.getElementById('delete-form').submit();
+                      }
+                  }
+                  </script>
               </div>
             </div>
-          </div><!-- End Info Item --> <br>
-          @endforeach--}}
-          
-        <div class="info-item  d-flex align-items-center">
-                  <i class="icon bi bi-food flex-shrink-0"></i>
-                  <div>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
-                  </div>
-                </div>
-              </div><!-- End Info Item --> <br>
-                
-        <div class="info-item  d-flex align-items-center">
-                  <i class="icon bi bi-food flex-shrink-0"></i>
-                  <div>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
-                  </div>
-                </div>
-              </div><!-- End Info Item --> <br>
-
-        <div class="info-item  d-flex align-items-center">
-                  <i class="icon bi bi-food flex-shrink-0"></i>
-                  <div>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
-                  </div>
-                </div>
-              </div><!-- End Info Item --> <br>
-
-  
-        <div class="info-item  d-flex align-items-center">
-                  <i class="icon bi bi-food flex-shrink-0"></i>
-                  <div>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
-                  </div>
-                </div>
-              </div><!-- End Info Item --> <br>
-
-
-
           </div>
+          @endforeach<!-- End Info Item -->
+        </div>
+      </div>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
@@ -266,7 +199,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Deliny</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
