@@ -19,9 +19,10 @@ class ComentariosController extends Controller
         #>>   Comentarios::where('nombre', 'Lili')->get(); 
         #Ese tiene la misma función pero es más para una selección
         #Por ejemplo si quiero que aparezcan solo nombres o calificaciones específicass
+
         return view('nueva-pagina-comentarios', compact('allcomentarios'));
-        #return view('prueba-pagina', compact('allcomentarios'));
-        #AHORITA LO VUELVES A PONER EL RETURN VIEW LISTADO COMENTARIOSSS
+        #return view('pagina-principal');
+     
     }
 
 
@@ -35,7 +36,6 @@ class ComentariosController extends Controller
         $allcomentarios = Comentarios::all();
         #return view('formulario-comentarios');  
         return view('formulario-comentarios', compact('allcomentarios')); 
-        #return view('prueba-pagina');
         
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
@@ -48,11 +48,9 @@ class ComentariosController extends Controller
             $comentarios->comentario = $request->comentario;  #Comentarios es por el nombre de la tabla ve en migrations
             $comentarios->calificacion=$request->calificacion;
             $comentarios->save();
-            #return redirect()->route('listado-comentarios');
+            
             return redirect()->route('comentarios.index');
-            #return redirect()->route('comentarios.index');
-            #return redirect('/comentario');
-            #return redirect()->back();   #El store solo sirve para guardar datos
+            
     }
 
     /**

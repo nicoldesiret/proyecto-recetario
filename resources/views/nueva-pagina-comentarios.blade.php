@@ -58,7 +58,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
+        
         <img src="{{ asset('assets/img/favicon.jpeg') }}" alt="Logo">
         <h1>Deliny<span>.</span></h1>
       </a>
@@ -106,7 +106,7 @@
       <!-- Agrega una imagen a la derecha -->
       <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
        <figure class="why-image">
-           <img src="{{ asset('assets/img/menu/probando-comida.jpg') }}" alt="Descripción de la imagen">
+           <img src="{{ asset('assets/img/menu/probando-comida.jpg') }}" alt="Hombre comiendo">
         </figure>
       </div>
     </div>
