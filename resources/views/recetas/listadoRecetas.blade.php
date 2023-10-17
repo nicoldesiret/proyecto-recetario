@@ -21,6 +21,7 @@
   <!-- Vendor CSS Files -->
   <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -72,64 +73,68 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="recetas" class="about">
+    <section id="recetas" class="about" style="background-color: #fbfbfb">
       <div class="container aos-init aos-animate" data-aos="fade-up">
+        <br><br>
         <div class="section-header">
-          <br><br>
           <h2>Recetas</h2>
           <p>Conoce nuestras <span>Mejores recetas</span></p>
-        </div>        
-        <ul>
+        </div>
+
+        <ul class="row gy-4">
           @foreach($recetas as $receta)
-              <div class="row gy-4">
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="150">
-                  <div class="call-us d-flex flex-column justify-content-center align-items-center">
-                    <h4 style="font-size: 25px">
-                      <a href="{{route('recetas.show', $receta->id)}}">
-                        {{$receta->titulo}}
-                      </a>
-                    </h4>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us d-flex flex-column justify-content-center align-items-center" style="background-color: #ffffff; border-radius: 10px;">
 
-                    <div>
-                      <img src="assets/img/blog/recetas.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <div class="menu">
-                      <ul class="nav nav-tabs d-flex justify-content-center aos-init aos-animate">
-                        <li class="nav-item" style="margin-right: 1em "><i class="bi bi-person"></i><a href="blog-single.html" style="color:black">Usuario</a></li></p>
-                        <li class="nav-item" style="margin-right: 1em"><i class="bi bi-clock"></i> <a href="blog-single.html" style="color:black">{{$receta->created_at->format('d/m/Y H:i')}}</a></li></p>
-                        <li class="nav-item" style="margin-right: 1em"><i class="bi bi-chat-dots"></i> <a href="blog-single.html" style="color:black">Comentarios</a></li></p>
-                        <li class="nav-item" style="margin-right: 1em"><i class="bi bi-pencil-square"></i><a href="{{route('recetas.edit', $receta->id)}}" style="color:black">Editar</a></li></p>
-                      </ul>
-                    </div>
-                    <div class="content">
-                      <div class="text-center"><p style="font-size:12px">Tipo de comida: {{$receta->tipoComida}}</p></div><br>
-                      <div class="text-center"><p style="font-size: 14px; color: black;">{{$receta->descripcion}}</p><br></div>
-                    </div>
-                    
-                    <div class="book-a-table">
-                      <form action="{{route('recetas.destroy', $receta)}}" method=POST class="php-email-form">
-                        @csrf
-                        @method('DELETE')
-                        <div class="text-center"><button type="submit">Borrarr</button></div>
-                      </form>
-
-                      {{--<form action="{{ route('recetas.destroy', $receta) }}" method="POST" id="delete-form">
-                        @csrf
-                        @method('DELETE')
-                        <br>
-                        <button type="button" class="btn btn-danger" style="background-color:#CE1212;">
-                            <i class="bi bi-trash"></i> Borrar
-                        </button>
-                      </form>--}}
-                    
-                  </div>
+              <div class="d-flex justify-content-between" style="margin-bottom:1em; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
+                <div style="margin-right: 5em;">
+                  <i class="bi bi-person" style="background-color: #ce1212; color: #fff; padding:5px; padding-left: 8px; padding-right:8px; border-radius: 50%; font-size: 20px;"></i><a href="blog-single.html" style="color: black; margin-left: 3px; font-size: 18px"><b>Usuario</b></a>
                 </div>
-              </div>                
+                <div>
+                  <a href="blog-single.html" style="color: black; margin-right: 5px; color: #9b9b9b;">{{$receta->created_at->format('d/m/Y H:i')}} <i class="bi bi-clock"></i></a>
+                </div>
+              </div>
+              
+              <h4 style="font-size: 25px">
+                <a href="{{route('recetas.show', $receta->id)}}">
+                  {{$receta->titulo}}
+                </a>
+              </h4><br>
+
+              <div>
+                <img src="assets/img/blog/recetas.jpg" alt="" class="img-fluid">
+              </div>
+
+              <div class="menu">
+                <ul class="nav nav-tabs d-flex justify-content-center aos-init aos-animate">
+                  <li class="nav-item" style="margin-right: 3em"><i class="fas fa-utensils"></i><a style="font-size:12px; margin-left:5px;">{{$receta->tipoComida}}</a>
+                  <li class="nav-item" style="margin-right: 1em"><i class="far fa-comment"></i><a href="blog-single.html" style="font-size:12px; margin-left:5px; color:black;">Comentarios</a></li>
+                </ul>
+              </div>
+              
+              <div class="content">
+                <div class="text-center"></div><br>
+                <div class="text-center"><p style="font-size: 14px; color: black;">{{$receta->descripcion}}</p><br></div>
+              </div>
+
+              <div style="display: flex">
+                <a href="{{route('recetas.edit', $receta->id)}}" class="btn btn-danger" style="background-color:#CE1212; font-size:12px; border-radius: 20px; margin-right:20px;">
+                  <i class="bi bi-pencil-square"></i>Editar
+                </a>
+                <form action="{{route('recetas.destroy', $receta)}}" method=POST>
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger" style="background-color:#CE1212; font-size:12px; border-radius: 20px;">
+                    <i class="bi bi-trash"></i>Borrar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
           @endforeach
         </ul>
       </div>
-    </section><!-- End About Section -->
+    </section>
 
   </main><!-- End #main -->
 

@@ -85,11 +85,20 @@
                     <input type="text" name="titulo" class="form-control" placeholder="Nombre del platillo"value="{{$receta->titulo}}" >
                     <div class="validate"></div>
                   </div>
-                  
+
                   <div class="col-lg-12">
-                    <input type="text" name="tipoComida" class="form-control" placeholder="Tipo de platillo" value="{{$receta->tipoComida}}">
+                    <label for="tipoComida">Tipo de platillo</label>
+                    <select name="tipoComida" class="form-control">
+                        <option value="Desayuno" @if($receta->tipoComida === 'Desayuno') selected @endif>Desayuno</option>
+                        <option value="Almuerzo" @if($receta->tipoComida === 'Almuerzo') selected @endif>Almuerzo</option>
+                        <option value="Comida" @if($receta->tipoComida === 'Comida') selected @endif>Comida</option>
+                        <option value="Cena" @if($receta->tipoComida === 'Cena') selected @endif>Cena</option>
+                        <option value="Postre" @if($receta->tipoComida === 'Postre') selected @endif>Postre</option>
+                        <option value="Bebida" @if($receta->tipoComida === 'Bebida') selected @endif>Bebida</option>
+                    </select>
                     <div class="validate"></div>
-                  </div>
+                </div>
+
                   
                   <div class="form-group mt-3">
                     <textarea class="form-control" name="descripcion" rows="5" placeholder="Describe el platillo">{{$receta->descripcion}}</textarea>
@@ -107,21 +116,5 @@
     </section><!-- End Book A Table Section -->
 
   </main><!-- End #main -->
-
-    <h1></h1>
-    <form action="{{route('recetas.update', $receta)}}" method="POST">
-        
-
-        <label for="titulo">Titulo</label>
-        <input type="text" name="titulo" ><br><br>
-        
-        <label for="descripcion">Descripción</label>
-        <input type="text" name="descripcion" "><br><br>
-
-        <label for="tipoComida">Tipo de comida</label>
-        <input type="text" name="tipoComida" value="{{$receta->titulo}}"><br><br>
-        
-        <input type="submit" value="Enviar"> 
-    </form>
 </body>
 </html>

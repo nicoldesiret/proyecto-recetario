@@ -92,7 +92,15 @@
                   </div>
                   
                   <div class="col-lg-12">
-                    <input type="text" name="tipoComida" class="form-control" placeholder="Tipo de platillo" >
+                    <select name="tipoComida" class="form-control" style="color: #595C5f; font-size: 14px;">
+                      <option value="">Selecciona el tipo de platillo</option>
+                      <option value="Desayuno">Desayuno</option>
+                      <option value="Almuerzo">Almuerzo</option>
+                      <option value="Comida">Comida</option>
+                      <option value="Cena">Cena</option>
+                      <option value="Postre">Postre</option>
+                      <option value="Bebida">Bebida</option>
+                    </select> 
                     <div class="validate"></div>
                   </div>
                   
