@@ -75,7 +75,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/ingredientes">Inicio</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
           <li><a href="/ingredientes">Ingredientes</a></li>
           <li><a href="#menu">Recetas</a></li>
           <li><a href="#events">Comentarios</a></li>
