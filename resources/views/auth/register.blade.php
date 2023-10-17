@@ -54,11 +54,7 @@
                 </div>
                 <div class="signup-image">
                     <figure><img src="{{asset('assets/img/signup-image.jpg')}}" alt="sing up image"></figure>
-<<<<<<< HEAD
                     <a href="/login" class="signup-image-link"><strong>Ya tienes una cuenta?</strong></a>
-=======
-                    <a href="/login" class="signup-image-link">Ya tienes una cuenta?</a>
->>>>>>> 30b599288ca9a2b7ba6b79728a05fd2dbf5114a8
                 </div>
             </div>
         </div>
