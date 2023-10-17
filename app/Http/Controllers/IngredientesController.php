@@ -39,12 +39,13 @@ class IngredientesController extends Controller
             'unidadMedida' => 'nullable' // Acepta un valor nulo (opcional)
         ]);
         
+        Ingredientes::create($request->all());
+       // $ingrediente = new Ingredientes();
+        //$ingrediente->nombre = $request->nombre;
+        //$ingrediente->cantidad = $request->cantidad;
 
-        $ingrediente = new Ingredientes();
-        $ingrediente->nombre = $request->nombre;
-        $ingrediente->cantidad = $request->cantidad;
-        $ingrediente->unidadMedida = $request->unidadMedida;
-        $ingrediente->save();
+        //$ingrediente->unidadMedida = $request->unidadMedida;
+        //$ingrediente->save();
 
         return redirect()->route('ingredientes.index');
     }
@@ -73,11 +74,12 @@ class IngredientesController extends Controller
      */
     public function update(Request $request, Ingredientes $ingrediente)
     {
+        Ingredientes::where('id', $ingrediente->id)->update($request->except('_token','_method'));
         //se actualizan los cambios del edit
-        $ingrediente->nombre=$request->nombre;
-        $ingrediente->cantidad=$request->cantidad;
-        $ingrediente->unidadMedida=$request->unidadMedida;
-        $ingrediente->save();
+        //$ingrediente->nombre=$request->nombre;
+        //$ingrediente->cantidad=$request->cantidad;
+        //$ingrediente->unidadMedida=$request->unidadMedida;
+        //$ingrediente->save();
         return redirect()->route('ingredientes.index');
     }
 

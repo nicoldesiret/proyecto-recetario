@@ -143,6 +143,27 @@
       </div>
     </section><!-- End Contact Section -->
 
+  
+  <table>
+    <thead>
+      <tr>
+        <th> Nombre </th>
+        <th> Cantidad </th>
+        <th> Unidad de Medida </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        @foreach ($ingredientes as $ingrediente)
+          <td>{{$ingrediente->nombre}}</td>
+          <td>{{$ingrediente->cantidad}}</td>
+          <td>{{$ingrediente->unidadMedida}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -210,8 +231,7 @@
       </div>
     </div>
 
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
+  </footer>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -230,4 +250,6 @@
 
 </body>
 
+
 </html>
+

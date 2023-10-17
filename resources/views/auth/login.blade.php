@@ -57,5 +57,4 @@
     <!-- Template Main JS File -->
     <link href="{{ asset('assets/js/main2.js') }}">
    
-
 </html>
