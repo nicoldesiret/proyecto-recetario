@@ -3,6 +3,7 @@
 use App\Http\Controllers\ComentariosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecetasController;
+use App\Http\Controllers\IngredientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('prueba/', function(){
     return view('prueba');
 });
 
 Route::resource('recetas', RecetasController::class);
 
-
-=======
 Route::resource('comentarios', ComentariosController::class);
   #Aquí debes poner resource 
 #'comentario' puede ser lo que yo quiera pero, también tiene que estár 
@@ -38,12 +36,12 @@ Route::resource('comentarios', ComentariosController::class);
 Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
 
-
-Route::get('prueba', function(){
+Route::get('prueba/', function () {
     return view('prueba');
 });
 
->>>>>>> origin/main
+Route::resource('ingredientes', IngredientesController::class);
+//Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
 
 Route::middleware([
     'auth:sanctum',
