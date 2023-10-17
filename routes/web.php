@@ -19,15 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('prueba/', function(){
     return view('prueba');
 });
 
 Route::resource('recetas', RecetasController::class);
 
-
-=======
 Route::resource('comentarios', ComentariosController::class);
   #Aquí debes poner resource 
 #'comentario' puede ser lo que yo quiera pero, también tiene que estár 
@@ -38,12 +35,6 @@ Route::resource('comentarios', ComentariosController::class);
 Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
 
-
-Route::get('prueba', function(){
-    return view('prueba');
-});
-
->>>>>>> origin/main
 
 Route::middleware([
     'auth:sanctum',
