@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>PRUEBA</h1>
-    <x-alerta>
-        Prueba de error
-    </x-alerta>
+no
 </body>
 </html>
-=======
-<x-mi-layout>
-<h2>Página de prueba</h2>
-</x-mi-layout>
->>>>>>> origin/main

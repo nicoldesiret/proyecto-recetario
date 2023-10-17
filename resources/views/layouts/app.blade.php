@@ -20,12 +20,20 @@
     <body class="font-sans antialiased">
         <x-banner />
 
+<<<<<<< HEAD
         <div class="min-h-screen bg-gray-100">
+=======
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+>>>>>>> origin/main
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
             @if (isset($header))
+<<<<<<< HEAD
                 <header class="bg-white shadow">
+=======
+                <header class="bg-white dark:bg-gray-800 shadow">
+>>>>>>> origin/main
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
