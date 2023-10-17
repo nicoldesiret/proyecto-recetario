@@ -2162,3 +2162,57 @@ section {
   font-size: 14px;
 }
 
+/* Estilo base para el select */
+.custom-select {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #DDE1E5;
+  background-color: #fff;
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 0px;
+  color:#595C5F;
+}
+
+/* Estilo para el ícono */
+.custom-select::after {
+  content: '\25BC'; /* Triángulo abajo como ícono */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Estilo cuando el select está enfocado */
+.custom-select:focus {
+  border-color:#CE1212;
+}
+
+/* Estilo cuando el select está deshabilitado */
+.custom-select:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* Estilo cuando se pasa el mouse sobre el select */
+.custom-select:hover {
+  background-color: #e9ecef;
+}
+
+/* Estilo para las opciones del select */
+.custom-select option {
+  font-size: 12px;
+  border-radius: 0px;
+}
+
+/* Estilo para las opciones cuando se pasa el mouse sobre ellas */
+.custom-select option:hover {
+  background-color: #ff9b9b;
+  color: #696969;
+}
+
+

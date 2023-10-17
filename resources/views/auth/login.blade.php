@@ -1,48 +1,61 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
-        <x-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
-                {{ session('status') }}
+<!DOCTYPE html>
+<html lang="es">
+    <x-header_login></x-header_login>
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        <br><br><br>
+          <section class="sign-in">
+            <div class="containerb">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{{asset('assets/img/signin-image.jpg') }}" alt="sing up image"></figure>
+                        <a href="/register" class="signup-image-link"><br><strong> Crear una cuenta</strong></a>
+                    </div>
+                        <div class="signin-form">
+                            <h2 class="form-title">Iniciar sesión</h2>
+                            <form method="POST" class="register-form" id="login-form" action="{{ route('login') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="email" value="{{ __('Email') }}"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input id="email" type="email" name="email" placeholder="Password" :value="old('email')" required autofocus autocomplete="username" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" value="{{ __('Password') }}" class="form-label"><i class="zmdi zmdi-lock"></i> </label>
+                                    <input id="password" type="password" name="password" placeholder="Contraseña" required autocomplete="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                    <label for="remember-me" class="label-agree-term"><span><span></span></span>{{ __('Remember me') }}</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="remember" id="remember-me" class="agree-term" />
+                                    <label class="form-check-label" for="remember_me">{{ __('Remember me') }}</label>
+                                </div>
+                                <x-validation-errors />
+                                @if (session('status'))
+                                    <div style="color:#CE1212">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                <div class="form-group form-button">
+                                    <button type="submit" class="form-submit btn btn-primary">{{ __('Iniciar sesión') }}</button>
+                                </div>
+                                <div class="form-group">
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}">
+                                            {{ __('Olvidaste tu contraseña?') }}
+                                        </a>
+                                    @endif
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        @endif
+        </section>
+</body>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <!-- Template Main JS File -->
+    <link href="{{ asset('assets/js/main2.js') }}">
+   
 
-            <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+</html>

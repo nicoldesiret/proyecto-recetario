@@ -34,10 +34,11 @@ class IngredientesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            //'nombre'=>'required|max:200',
-            //'cantidad'=>'required1|numeric',
-            //'unidadMedida'=>'required'
+            'nombre' => 'required|regex:/^[\pL\s\-]+$/u|max:150',
+            'cantidad' => 'required|numeric|min:0',
+            'unidadMedida' => 'nullable' // Acepta un valor nulo (opcional)
         ]);
+        
 
         $ingrediente = new Ingredientes();
         $ingrediente->nombre = $request->nombre;

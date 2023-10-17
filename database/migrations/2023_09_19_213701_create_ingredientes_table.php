@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->float('cantidad', 10, 2);
-            $table->string('unidadMedida');
+            $table->string('unidadMedida')->nullable();
             //$table->integer('idReceta');
             $table->timestamps(); 
         });
