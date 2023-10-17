@@ -52,18 +52,18 @@
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
 
-  {{-- =======================================================
+  {{--        ======
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== --}}
+           --}}
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!--   Header   -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -111,7 +111,7 @@
 
   <main id="main">
    
-    <!-- ======= Chefs Section ======= -->
+    <!--   Chefs Section   -->
     <br><br><br>
     <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
@@ -142,7 +142,7 @@
 
  </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  <!--   Footer   -->
   <footer id="footer" class="footer">
 
     <div class="container">

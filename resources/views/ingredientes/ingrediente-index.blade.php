@@ -30,18 +30,18 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  {{-- =======================================================
+  {{--        ======
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== --}}
+           --}}
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!--   Header   -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -87,7 +87,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+  <!--   Hero Section   -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
       <div class="row justify-content-between gy-5">
@@ -105,7 +105,7 @@
   </section><!-- End Hero Section -->
   <main id="main">
 
-    <!-- ======= Contact Section ======= -->
+    <!--   Contact Section   -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
@@ -145,7 +145,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  <!--   Footer   -->
   <footer id="footer" class="footer">
 
     <div class="container">

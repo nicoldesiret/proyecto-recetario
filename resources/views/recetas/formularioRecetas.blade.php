@@ -28,18 +28,18 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
+  <!--        ======
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+           -->
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!--   Header   -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
@@ -66,10 +66,10 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+  <!--   Hero Section   -->
   <br><br>
   <main id="main">
-    <!-- ======= Book A Table Section ======= -->
+    <!--   Book A Table Section   -->
     <section id="book-a-table" class="book-a-table">
       <div class="container">
 

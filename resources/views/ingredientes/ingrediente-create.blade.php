@@ -33,18 +33,18 @@
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
 
-  {{-- =======================================================
+  {{--        ======
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== --}}
+           --}}
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!--   Header   -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -91,7 +91,7 @@
   </header><!-- End Header -->
 
   <main id="main">
-    <!-- ======= Book A Table Section ======= -->
+    <!--   Book A Table Section   -->
     <section id="book-a-table" class="book-a-table">
         <div class="container" data-aos="fade-up">
   
@@ -145,7 +145,7 @@
       </section><!-- End Book A Table Section -->
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  <!--   Footer   -->
   <footer id="footer" class="footer">
 
     <div class="container">

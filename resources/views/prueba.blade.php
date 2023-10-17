@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +13,8 @@
     </x-alerta>
 </body>
 </html>
-=======
+
 <x-mi-layout>
 <h2>Página de prueba</h2>
 </x-mi-layout>
->>>>>>> origin/main
+

@@ -25,13 +25,13 @@
     <link href="/assets/css/main.css" rel="stylesheet">
 
     <!---
-    =======================================================
+           ======
     * Template Name: Yummy
     * Updated: Sep 18 2023 with Bootstrap v5.3.2
     * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+             -->
 </head>
 <body>
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -63,7 +63,7 @@
 
         </div>
     </header><!-- End Header -->
-    <!-- ======= Hero Section ======= -->
+    <!--   Hero Section   -->
     <section id="hero" class="hero d-flex align-items-center section-bg">
         <div class="container">
         <div class="row justify-content-between gy-5">
