@@ -23,7 +23,10 @@ Route::get('prueba/', function () {
     return view('prueba');
 });
 
-Route::resource('ingredientes', IngredientesController::class);
+//Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
+Route::resource('ingredientes', IngredientesController::class);//->middleware('auth'); SI FUNCIONA
+
+
 //Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
 Route::middleware([
     'auth:sanctum',

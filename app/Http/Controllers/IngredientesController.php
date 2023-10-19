@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class IngredientesController extends Controller
 {
+    public function _construct()
+    {
+        $this->middleware('auth')->except('index','show');
+        //NO FUNCIONÓ
+    }
     /**
      * Display a listing of the resource.
      */
