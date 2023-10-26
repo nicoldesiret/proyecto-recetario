@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientesController;
+use App\Http\Controllers\ComentariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +18,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('prueba/', function () {
-    return view('prueba');
-});
-
 //Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
 Route::resource('ingredientes', IngredientesController::class);//->middleware('auth'); SI FUNCIONA
 
 
 //Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
+Route::resource('comentarios', ComentariosController::class);
+
+
+  #Aquí debes poner resource 
+#'comentario' puede ser lo que yo quiera pero, también tiene que estár 
+#en action="/comentario"> esto en formulario, dentro del action tiene que coincidir. 
+
+Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
+#Route::post('/', [ComentariosControllerntroller::class, 'create'])
+
+
+Route::get('prueba', function(){
+    return view('prueba');
+});
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

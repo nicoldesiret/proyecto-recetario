@@ -2214,5 +2214,17 @@ section {
   background-color: #ff9b9b;
   color: #696969;
 }
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+
+
+
+
 
 
