@@ -16,7 +16,7 @@
   <link rel="assets/img/Logo.ico" type="image/x-icon">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main2.css" rel="stylesheet">
   {{--<link href="assets/css/style.css" rel="stylesheet--}}
 </head>
 <body>

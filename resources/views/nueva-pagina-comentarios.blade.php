@@ -32,7 +32,7 @@
 <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/main2.css') }}" rel="stylesheet">
   
 
   <!-- =======================================================
@@ -142,7 +142,7 @@
 
 
 <!-- INICIO DE COMENTARIOS LISTADO -->
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/main2.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 @if (count($allcomentarios) > 0)
     <ul class="comment-list">

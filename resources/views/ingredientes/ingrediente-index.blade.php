@@ -28,7 +28,7 @@
 
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main2.css" rel="stylesheet">
 
   {{-- =======================================================
   * Template Name: Yummy
