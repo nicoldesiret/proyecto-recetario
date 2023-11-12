@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientesController;
 use App\Http\Controllers\ComentariosController;
+use App\Http\Controllers\RecetasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,10 @@ Route::get('/', function () {
 //Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
 Route::resource('ingredientes', IngredientesController::class);//->middleware('auth'); SI FUNCIONA
 
-
 //Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
 Route::resource('comentarios', ComentariosController::class);
+
+Route::resource('recetas', RecetasController::class);
 
 
   #Aquí debes poner resource 
@@ -37,7 +39,6 @@ Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comen
 Route::get('prueba', function(){
     return view('prueba');
 });
-
 
 Route::middleware([
     'auth:sanctum',
