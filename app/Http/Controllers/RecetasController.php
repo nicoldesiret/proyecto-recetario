@@ -14,6 +14,7 @@ class RecetasController extends Controller
     {
         $recetas = Recetas::all(); ///regresa todo lo de la tabla
         ///Recetas::where('nombre','Nicol')->get();
+        ///$recetas = Recetas::where('user_id')->get();
 
         //dd($recetas); ///verficar que la consulta funciona
         return view('recetas/listadoRecetas', compact('recetas'));

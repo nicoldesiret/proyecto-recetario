@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            //$table->foreignId('user_id')->constrained();
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('tipoComida');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comentarios;
+use App\Models\Recetas;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,10 @@ class ComentariosController extends Controller
 
     public function create()
     {
-        $allcomentarios = Comentarios::all();
+        $receta = Recetas::all();
+
         #return view('formulario-comentarios');  
-        return view('formulario-comentarios', compact('allcomentarios')); 
+        return view('formulario-comentarios', compact('receta')); 
         
     }  #CON ESTO ESPERO QUE REGISTRE PERO AÚN NO SÉ CÓMO 
 
@@ -47,6 +49,7 @@ class ComentariosController extends Controller
             $comentarios = new Comentarios(); #Lo que viene del request lo asignamos acá 
             $comentarios->comentario = $request->comentario;  #Comentarios es por el nombre de la tabla ve en migrations
             $comentarios->calificacion=$request->calificacion;
+            $comentarios->receta_id = $request->receta_id;
             $comentarios->save();
             
             return redirect()->route('comentarios.index');

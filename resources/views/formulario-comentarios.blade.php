@@ -125,6 +125,14 @@
             </select>
         </div>
 
+        <select name="receta_id">
+            @foreach ($receta as $r)
+                <option value="{{ $r->id }}">
+                    {{ $r->titulo }}
+                </option>
+            @endforeach
+        </select>
+
         <div class="text-center">
     <button type="submit" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; border: none; border-radius: 20px; cursor: pointer;">Enviar comentario</button>
         </div>

@@ -75,7 +75,22 @@
             <img src="/assets/img/hero-img.png" class="img-fluid" alt="" >
             </div>
         </div>
+          <div>
+            @if ($receta->comentarios)
+                <p>
+                    <ul>
+                        @foreach ($receta->comentarios as $c)
+                            <li>{{ $c->comentario }}</li>
+                        @endforeach
+                    </ul>
+                </p>
+            @else
+                <p>No comments available for this recipe.</p>
+            @endif
+          </div>
         </div>
+        
+        <!--<h4>Usuario que creó:  $receta->user->name }}</h4>-->
     </section><!-- End Hero Section -->
 </body>
 </html>

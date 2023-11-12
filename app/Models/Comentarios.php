@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comentarios extends Model
 {
     use HasFactory;
+
+    public function receta()
+    {
+        return $this->belongsTo(Recetas::class);
+    }
 }
