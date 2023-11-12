@@ -32,6 +32,12 @@ class RecetasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'titulo' => 'required|regex:/^[\pL\s\-]+$/u|max:150',
+            'tipoComida' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
+            'descripcion' => 'required|string|max:1000'
+        ]);
+       
         //$request->validate([]);
         $recetas = new Recetas();
         $recetas->titulo = $request->titulo;

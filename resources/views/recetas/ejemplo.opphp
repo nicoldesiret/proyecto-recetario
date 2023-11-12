@@ -1,0 +1,15 @@
+<h1>Nueva receta</h1>
+    <form action="/recetas" method="POST">
+        @csrf
+        
+        <label for="titulo">Titulo</label><br>
+        <input type="text" name="titulo"><br><br>
+        
+        <label for="descripcion">Descripción</label><br>
+        <textarea name="descripcion" rows="5"></textarea><br><br>
+
+        <label for="tipoComida">Tipo de comida</label><br>
+        <input type="text" name="tipoComida"><br><br>
+        
+        <input type="submit" value="Enviar"> 
+    </form>
