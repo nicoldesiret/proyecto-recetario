@@ -49,7 +49,7 @@ class ComentariosController extends Controller
             $comentarios = new Comentarios(); #Lo que viene del request lo asignamos acá 
             $comentarios->comentario = $request->comentario;  #Comentarios es por el nombre de la tabla ve en migrations
             $comentarios->calificacion=$request->calificacion;
-            $comentarios->receta_id = $request->receta_id;
+            $comentarios->recetas_id = $request->recetas_id;
             $comentarios->save();
             
             return redirect()->route('comentarios.index');

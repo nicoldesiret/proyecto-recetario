@@ -76,17 +76,12 @@
             </div>
         </div>
           <div>
-            @if ($receta->comentarios)
-                <p>
                     <ul>
                         @foreach ($receta->comentarios as $c)
                             <li>{{ $c->comentario }}</li>
                         @endforeach
                     </ul>
-                </p>
-            @else
-                <p>No comments available for this recipe.</p>
-            @endif
+
           </div>
         </div>
         

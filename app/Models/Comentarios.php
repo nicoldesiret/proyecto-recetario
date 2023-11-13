@@ -11,6 +11,6 @@ class Comentarios extends Model
 
     public function receta()
     {
-        return $this->belongsTo(Recetas::class);
+        return $this->belongsTo(Recetas::class, 'recetas_id');
     }
 }

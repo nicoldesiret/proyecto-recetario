@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('comentario');
             $table->float('calificacion',3,2);
-            $table->foreignId('receta_id')->constrained();
+            $table->foreignId('recetas_id')->constrained();
             $table->timestamps(); #Lo dejo para fecha de comentario
         });
     }

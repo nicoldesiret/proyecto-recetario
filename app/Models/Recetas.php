@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Recetas extends Model
@@ -14,7 +15,7 @@ class Recetas extends Model
         return $this->belongsTo(User::class);
     }*/
 
-    public function comentario()
+    public function comentarios(): HasMany
     {
         return $this->hasMany(Comentarios::class);
     }

@@ -125,7 +125,7 @@
             </select>
         </div>
 
-        <select name="receta_id">
+        <select name="recetas_id">
             @foreach ($receta as $r)
                 <option value="{{ $r->id }}">
                     {{ $r->titulo }}
