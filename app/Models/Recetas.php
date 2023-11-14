@@ -19,4 +19,9 @@ class Recetas extends Model
     {
         return $this->hasMany(Comentarios::class);
     }
+
+    public function etiquetas()
+    {
+        return $this->belongsToMany(Etiqueta::class);
+    }
 }
