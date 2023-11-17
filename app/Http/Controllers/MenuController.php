@@ -61,7 +61,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        return view('menus/menu-show', compact('menu'));
     }
 
     /**
@@ -106,6 +106,8 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('menus.index');
+
     }
 }

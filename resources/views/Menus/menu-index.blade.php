@@ -12,7 +12,30 @@
          
                 @foreach ($menus as $menu)
                 <h2>{{ $menu->nombre }}</h2>
-                <p> <a href="{{route('menus.edit', $menu)}}" ><strong>Editar</strong> </a></li> 
+                <a href="{{route('menus.show', $menu->id)}}" >
+                    <h2 ><strong style="color:black" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">{{$menu->nombre}} </strong></h2>
+                </a>
+                <p> <a href="{{route('menus.edit', $menu)}}" ><strong>Editar</strong> </a> 
+                    <div>
+                                {{--<form action="{{ route('ingredientes.destroy', $ingrediente) }}" method="POST" id="delete-form">
+                                @csrf
+                                @method('DELETE')
+                                <br>
+                                <button type="button" class="btn btn-danger" style="background-color:#CE1212;border-radius:20px;" onclick="mostrarConfirmacion()">
+                                    <i class="bi bi-trash"></i> Borrar
+                                </button>
+                            </form>--}}
+                          
+                            <script>
+                                function mostrarConfirmacion() {
+                                    if (confirm('¿Estás seguro de que deseas borrar este ingrediente?')) {
+                                        document.getElementById('delete-form').submit();
+                                    }
+                                }
+                            </script>
+                        </a>
+                    </div>
+
                     <table class="table">
                         <thead>
                             <tr>

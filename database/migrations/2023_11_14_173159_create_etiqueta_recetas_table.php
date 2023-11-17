@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('etiqueta_recetas', function (Blueprint $table) {
-            $table->foreignId('recetas_id')->constrained();
-            $table->foreignId('etiqueta_id')->constrained();
+            $table->foreignId('recetas_id')->constrained()->onDelete('cascade');
+            $table->foreignId('etiqueta_id')->constrained()->onDelete('cascade');
             //$table->unsignedBigInteger('etiqueta_id');
             //$table->foreign('etiqueta_id')->references('id')->on('etiquetas');
         });
