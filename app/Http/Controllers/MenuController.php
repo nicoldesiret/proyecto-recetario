@@ -53,7 +53,7 @@ class MenuController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'Selección guardada exitosamente');
+        return redirect()->route('menus.index');
     }
 
     /**

@@ -44,9 +44,7 @@
                                         <select name="recetas[{{ $dia }}][{{ $tipo }}]">
                                             <option value="">Selecciona un {{ $tipo }}</option>
                                             @foreach(${'recetas' . $tipo} as $receta)
-                                            <option value="{{ $receta->id }}" @if(old('recetas.'.$dia.'.'.$tipo, $recetaElegida) == $receta->id) selected @endif>
-                                                {{ $receta->titulo }}
-                                            </option>
+                                                <option value="{{ $receta->id }}">{{ $receta->titulo }}</option>
                                             @endforeach
                                         </select>
                                     </td>
