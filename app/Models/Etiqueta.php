@@ -12,7 +12,7 @@ class Etiqueta extends Model
     use HasFactory;
 
     /*** Obtener las etiquetas asociadas a esta receta.*/
-    public function etiquetas()
+    public function recetas()
     {
         return $this->belongsToMany(Recetas::class);
     }

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('etiqueta_recetas', function (Blueprint $table) {
+        Schema::create('menu_recetas', function (Blueprint $table) {
             $table->foreignId('recetas_id')->constrained();
-            $table->foreignId('etiqueta_id')->constrained();
-            //$table->unsignedBigInteger('etiqueta_id');
-            //$table->foreign('etiqueta_id')->references('id')->on('etiquetas');
+            $table->foreignId('menu_id')->constrained();
+            $table->string('dia');
+            $table->string('tipo_comida');
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('etiqueta_recetas');
+        Schema::dropIfExists('menu_recetas');
     }
 };

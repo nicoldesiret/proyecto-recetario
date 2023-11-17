@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recetas;
 use Illuminate\Http\Request;
+use App\Models\Recetas;
 use App\Models\Etiqueta;
+
 
 class RecetasController extends Controller
 {

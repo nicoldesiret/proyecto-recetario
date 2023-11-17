@@ -24,4 +24,9 @@ class Recetas extends Model
     {
         return $this->belongsToMany(Etiqueta::class);
     }
+    public function menus()
+    {
+        //If your pivot table contains extra attributes, you must specify them when defining the relationship       
+        return $this->belongsToMany(Menu::class)->withPivot('dia', 'tipo_comida');;
+    }
 }
