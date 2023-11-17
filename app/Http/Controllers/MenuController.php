@@ -84,9 +84,21 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        Menu::where('id', $menu->id)->update($request->except('_token','_method'));
-        //se actualizan los cambios del edit
-        return redirect()->route('menu.index');
+        $menu->update([
+            'nombre' => $request->input('nombre')
+        ]);
+    
+        $data = $request->input('recetas');
+    
+        foreach ($data as $dia => $tipo) {
+            foreach ($tipo as $t => $recetaId) {
+                if ($recetaId !== null && $recetaId !== '') {
+                    $menu->recetas()->syncWithoutDetaching([$recetaId => ['dia' => $dia, 'tipo_comida' => $t]]);
+                }          
+            }
+        }
+    
+        return redirect()->route('menus.index');
     }
 
     /**

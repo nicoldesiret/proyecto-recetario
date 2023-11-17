@@ -46,7 +46,14 @@
                                         <select name="recetas[{{ $dia }}][{{ $tipo }}]">
                                             <option value="">Selecciona un {{ $tipo }}</option>
                                             @foreach(${'recetas' . $tipo} as $receta)
-                                                <option value="{{ $receta->id }}">{{ $receta->titulo }}</option>
+                                            <option value="{{ $receta->id }}"
+                                                @foreach ($menu->recetas as $recetaMenu)
+                                                    @if ($recetaMenu->pivot->dia === $dia && $recetaMenu->pivot->tipo_comida === $tipo && $receta->id === $recetaMenu->id)
+                                                        selected
+                                                    @endif
+                                                @endforeach                                            >
+                                                {{ $receta->titulo }}
+                                            </option>
                                             @endforeach
                                         </select>
                                     </td>
