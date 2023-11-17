@@ -14,7 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = Menu::all();
+        return view('menus/menu-index', compact('menus'));
     }
 
     /**
@@ -37,22 +38,22 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        //Mass assignment: se pone en el fillable de Menu
         $menu = Menu::create([
             'nombre' => $request->input('nombre')
         ]);
 
-        $recetaId = $request->input('receta_id');
-        $diaSemana = $request->input('dia_semana');
-        $tipoComida = $request->input('tipo_comida');
+        //Recupera los datos enviados desde el formulario que tienen el name=recetas[{{ $dia }}][{{ $tipo }}]
+        $data = $request->input('recetas'); 
 
-        $recetas = Recetas::findOrFail($recetaId);
+        foreach ($data as $dia => $tipo) {     //Iteración de arrays de data
+            foreach ($tipo as $t => $recetaId) {       // Iteración del tipo de comida y receta correspondiente del día actual
+                // Adjunta la receta al menú con los detalles del día y el tipo de comida en la tabla pivote
+                $menu->recetas()->attach($recetaId, ['dia' => $dia, 'tipo_comida' => $t]);
+            }
+        }
 
-        $menu->recetas()->attach($recetaId, [
-            'dia_semana' => $diaSemana,
-            'tipo_comida' => $tipoComida
-        ]);
-
-        return redirect()->back()->with('success', 'Receta agregada al menú exitosamente');
+        return redirect()->back()->with('success', 'Selección guardada exitosamente');
     }
 
     /**
@@ -68,7 +69,14 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        $recetasDesayuno = Recetas::where('tipoComida', 'Desayuno')->get();
+        $recetasAlmuerzo = Recetas::where('tipoComida', 'Almuerzo')->get();
+        $recetasComida = Recetas::where('tipoComida', 'Comida')->get();
+        $recetasCena = Recetas::where('tipoComida', 'Cena')->get();
+        $recetasBebida = Recetas::where('tipoComida', 'Bebida')->get();
+        $recetasPostre = Recetas::where('tipoComida', 'Postre')->get();
+
+        return view('menus/menu-edit', compact('menu','recetasDesayuno', 'recetasAlmuerzo', 'recetasComida', 'recetasCena', 'recetasBebida', 'recetasPostre'));
     }
 
     /**
@@ -76,7 +84,9 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        Menu::where('id', $menu->id)->update($request->except('_token','_method'));
+        //se actualizan los cambios del edit
+        return redirect()->route('menu.index');
     }
 
     /**
