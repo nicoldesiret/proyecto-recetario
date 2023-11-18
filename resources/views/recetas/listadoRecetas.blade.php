@@ -102,7 +102,7 @@
               </h4><br>
 
               <div>
-                <img src="assets/img/blog/recetas.jpg" alt="" class="img-fluid">
+              <img src="{{ \Storage::url($receta->archivo_ubicacion) }}" alt="" class="img-fluid">
               </div>
 
               <div class="menu">

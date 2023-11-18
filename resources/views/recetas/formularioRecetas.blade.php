@@ -83,7 +83,7 @@
           <div class="col-lg-4 reservation-img" style="background-image: url(/assets/img/recetario/nuevareceta.jpg);"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="/recetas" method="POST" class="php-email-form">
+            <form action="/recetas" method="POST" class="php-email-form" enctype="multipart/form-data">
                 @csrf
                 <div class="row gy-4">
                   <div class="col-lg-12">
@@ -108,6 +108,10 @@
                     <textarea class="form-control" name="descripcion" rows="5" placeholder="Describe el platillo"></textarea>
                     <div class="validate"></div>
                   </div>
+
+                  <label for="archivo">Cargar imagen de la receta</label> <!-- Inicio de carga de archivo -->
+                  <input type="file" name="archivo" id="archivo">
+
 
                   <div class="text-center"><button type="submit">Crear</button></div>
                 </div>
