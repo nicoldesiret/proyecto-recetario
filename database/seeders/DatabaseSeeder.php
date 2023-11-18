@@ -21,5 +21,8 @@ class DatabaseSeeder extends Seeder
         //$this->call([
         //    Nombreseeder:class,
         //]);
+        $this->call([
+            EtiquetaSeeder::class,
+        ]);
     }
 }

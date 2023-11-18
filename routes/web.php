@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientesController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\RecetasController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::resource('ingredientes', IngredientesController::class);//->middleware('a
 Route::resource('comentarios', ComentariosController::class);
 
 Route::resource('recetas', RecetasController::class);
+
+Route::resource('menus', MenuController::class);
 
 
   #Aquí debes poner resource 
