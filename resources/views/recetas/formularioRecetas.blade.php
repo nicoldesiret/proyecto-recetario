@@ -28,6 +28,22 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
 
+      <!-- Incluir estilos y scripts de Select2 -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  
+      <script>
+          // Inicializar Select2 en el campo de etiquetas
+          $(document).ready(function() {
+              $('#etiquetas').select2({
+                  tags: true,
+                  tokenSeparators: [',', ' '], // Permitir separar etiquetas por coma o espacio
+                  placeholder: "Selecciona o crea etiquetas",
+              });
+          });
+      </script>
+
   <!-- =======================================================
   * Template Name: Yummy
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -112,6 +128,17 @@
                   <label for="archivo">Cargar imagen de la receta</label> <!-- Inicio de carga de archivo -->
                   <input type="file" name="archivo" id="archivo">
 
+                  <div class="col-lg-12">
+                    <label for="etiquetas">Etiquetas:</label>
+                      <select id="etiquetas" name="etiqueta_id[]" multiple class="form-control">
+                          <!-- Opciones de etiquetas existentes -->
+                          @foreach ($etiquetas as $etiqueta)
+                            <option value="{{ $etiqueta->id }}" @selected( array_search($etiqueta->id, old('etiqueta_id') ?? []) !== false )>
+                              {{ $etiqueta->etiqueta }}
+                            </option>
+                          @endforeach
+                      </select>
+                  </div>
 
                   <div class="text-center"><button type="submit">Crear</button></div>
                 </div>
