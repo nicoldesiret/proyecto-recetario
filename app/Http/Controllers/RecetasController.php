@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Auth;
 use App\Models\Recetas;
-use App\Models\Etiqueta;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecetasController extends Controller
 {
@@ -28,8 +26,7 @@ class RecetasController extends Controller
      */
     public function create()
     {
-        $etiquetas = Etiqueta::all();
-        return view('recetas/formularioRecetas', compact('etiquetas'));
+        return view('recetas/formularioRecetas');
     }
 
     /**
@@ -72,10 +69,6 @@ class RecetasController extends Controller
         }
 
         $recetas->save();
-
-        // Asociar la etiqueta seleccionada con la receta
-        //dd($request->etiqueta_id);
-        $recetas->etiquetas()->attach($request->etiqueta_id);
 
         return redirect()->route('recetas.index');
     }

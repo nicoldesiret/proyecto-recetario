@@ -84,11 +84,6 @@
                     </ul>
 
           </div>
-          <ul>
-              @foreach ($receta->etiquetas as $etiqueta)
-                  <li>{{ $etiqueta->etiqueta }}</li>
-              @endforeach
-          </ul>
         </div>
         
         <!--<h4>Usuario que creó:  $receta->user->name }}</h4>-->
