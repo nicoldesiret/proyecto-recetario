@@ -87,16 +87,19 @@ class MenuController extends Controller
         $menu->update([
             'nombre' => $request->input('nombre')
         ]);
-    
+
         $data = $request->input('recetas');
+
+        // Borra todas las relaciones actuales, en el form ya están como selected
+        $menu->recetas()->detach();
     
         foreach ($data as $dia => $tipo) {
             foreach ($tipo as $t => $recetaId) {
-                if ($recetaId !== null && $recetaId !== '') {
-                    $menu->recetas()->syncWithoutDetaching([$recetaId => ['dia' => $dia, 'tipo_comida' => $t]]);
-                }          
+                // Adjunta la receta al menú con los detalles del día y el tipo de comida en la tabla pivote
+                $menu->recetas()->attach($recetaId, ['dia' => $dia, 'tipo_comida' => $t]);
             }
         }
+    
     
         return redirect()->route('menus.index');
     }
