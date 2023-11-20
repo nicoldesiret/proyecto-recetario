@@ -65,6 +65,7 @@
           <div class="form-group">
               <label for="tipoComida">Buscar por tipo de comida:</label>
               <select name="tipoComida" class="form-control">
+                  <option value="">Todos</option>
                   <option value="Desayuno">Desayuno</option>
                   <option value="Almuerzo">Almuerzo</option>
                   <option value="Comida">Comida</option>
