@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
-use Illuminate\Http\Request;
-
 use App\Models\Recetas;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
@@ -14,7 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
+        $menus = Menu::where('user_id', Auth::id())->get();
+
         return view('menus/menu-index', compact('menus'));
     }
 
@@ -38,10 +39,13 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //Mass assignment: se pone en el fillable de Menu
+        $user_id = Auth::id(); // Obtener el ID del usuario autenticado
+
         $menu = Menu::create([
-            'nombre' => $request->input('nombre')
+            'nombre' => $request->input('nombre'),
+            'user_id' => $user_id, // Asignar el user_id al crear el menú
         ]);
+        
 
         //Recupera los datos enviados desde el formulario que tienen el name=recetas[{{ $dia }}][{{ $tipo }}]
         $data = $request->input('recetas'); 
