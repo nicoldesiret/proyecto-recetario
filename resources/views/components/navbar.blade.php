@@ -14,13 +14,13 @@
         @if (Route::has('login'))
                 <li class="dropdown"><a href="{{ url('/recetas') }}"><span>Recetas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Desayunos</a></li>
-                        <li><a href="#">Almuerzos</a></li>
-                        <li><a href="#">Comidas</a></li>
-                        <li><a href="#">Cenas</a></li>
-                        <li><a href="#">Postres</a></li>
-                        <li><a href="#">Bebidas</a></li>
-                    </ul>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Desayuno']) }}">Desayunos</a></li>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Almuerzo']) }}">Almuerzos</a></li>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Comida']) }}">Comidas</a></li>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Cena']) }}">Cenas</a></li>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Postre']) }}">Postres</a></li>
+                        <li><a href="{{ route('recetas.index', ['tipoComida' => 'Bebida']) }}">Bebidas</a></li>
+                    </ul>                    
                 </li>
                 <li><a href="{{ url('/menus') }}">Menú Semanal</a></li>
                 @auth
