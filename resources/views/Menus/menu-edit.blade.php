@@ -1,4 +1,5 @@
-<x-layout-d>
+<x-deliny-layout>
+
 
     <main id="main">
         <!-- ======= Book A Table Section ======= -->
@@ -76,4 +77,4 @@
           </section>
       </main>
 
-</x-layout-d>
+</x-deliny-layout>

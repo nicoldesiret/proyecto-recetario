@@ -1,4 +1,4 @@
-<x-layout-d>
+<x-deliny-layout>
     @php
         $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
         $tiposComida = ['Desayuno', 'Almuerzo', 'Comida', 'Cena', 'Bebida', 'Postre'];
@@ -80,4 +80,4 @@
         </section>
     </main>
 
-</x-layout-d>
+</x-deliny-layout>

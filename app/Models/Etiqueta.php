@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Etiqueta extends Model
 {
     public $timestamps = false; 
+    protected $fillable =['etiqueta'];
 
     use HasFactory;
 

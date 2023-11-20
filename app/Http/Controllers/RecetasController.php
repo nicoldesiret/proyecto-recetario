@@ -49,35 +49,36 @@ class RecetasController extends Controller
             'descripcion' => 'required|string|max:1000',
             'archivo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
-
-        if(!$request->file('archivo')->isValid()){
-            //mensaje de error
+    
+        $etiquetasSeleccionadas = $request->input('etiqueta_id', []); //etiquetas creadas y existentes
+    
+        //Regresa los id de las etiquetas seleccionadas diferentes a las que ya existen y las guarda en un array
+        $nuevasEtiquetas = array_diff($etiquetasSeleccionadas, Etiqueta::pluck('id')->toArray()); 
+    
+        //Se crea un array para huardar los id de las etiquetas que se van guardando en el for 
+        $etiquetasCreadas = [];
+        foreach ($nuevasEtiquetas as $nuevaEtiqueta) {
+            $etiqueta = Etiqueta::create(['etiqueta' => $nuevaEtiqueta]);
+            $etiquetasCreadas[] = $etiqueta->id;
         }
-
-        $request->merge([
-            'archivo_ubicacion'=>$request->file('archivo')->store('public/img_recetas'),
-            'user_id' => Auth::id()
+    
+        $archivoUbicacion = $request->file('archivo')->store('public/img_recetas');
+    
+        $receta = Recetas::create([
+            'titulo' => $request->titulo,
+            'tipoComida' => $request->tipoComida,
+            'descripcion' => $request->descripcion,
+            'archivo_ubicacion' => $archivoUbicacion,
+            'user_id' => Auth::id(),
         ]);
-
-        Recetas::create($request->all());
-       
-        /*
-        $recetas = new Recetas();
-        $recetas->titulo = $request->titulo;
-        $recetas->descripcion = $request->descripcion;
-        $recetas->tipoComida = $request->tipoComida;
-        $recetas->save();
-
-        // Asociar la etiqueta seleccionada con la receta
-        //dd($request->etiqueta_id);
-        $recetas->etiquetas()->attach($request->etiqueta_id);*/
-
+    
+        // Array de etiquetas creadas y existentes.
+        $etiquetasReceta = array_merge($etiquetasCreadas, Etiqueta::whereIn('id', $etiquetasSeleccionadas)->pluck('id')->toArray());
+        $receta->etiquetas()->attach($etiquetasReceta);
+    
         return redirect()->route('recetas.index');
     }
-
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(Recetas $receta)
     {
         return view('recetas.receta-show', compact('receta'));
