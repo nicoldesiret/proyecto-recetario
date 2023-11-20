@@ -4,12 +4,8 @@
         $tiposComida = ['Desayuno', 'Almuerzo', 'Comida', 'Cena', 'Bebida', 'Postre'];
     @endphp
     <main id="main">
-        <!-- ======= Book A Table Section ======= -->
-        <section id="book-a-table" class="book-a-table">
-            <div class="container" data-aos="fade-up">
-      
+        <div class="container" data-aos="fade-up">
             <div class="row g-0">
-         
                 @foreach ($menus as $menu)
                 <h2>{{ $menu->nombre }}</h2>
                 <a href="{{route('menus.show', $menu->id)}}" >
@@ -73,11 +69,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                @endforeach
-                </div>
-
+                @endforeach    
             </div>
-        </section>
+        </div>
     </main>
 
 </x-deliny-layout>

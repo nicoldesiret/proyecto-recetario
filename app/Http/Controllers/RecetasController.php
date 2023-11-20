@@ -119,5 +119,6 @@ class RecetasController extends Controller
     {
         return Storage::download($receta->archivo_ubicacion);
     }
+
 }
 

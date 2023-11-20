@@ -117,4 +117,11 @@ class MenuController extends Controller
         return redirect()->route('menus.index');
 
     }
+
+    public function inicio()
+    {
+        $recetas = Recetas::where('user_id', Auth::id())->get();
+        $menus = Menu::where('user_id', Auth::id())->get();
+        return view('inicio', compact('recetas', 'menus'));
+    }
 }

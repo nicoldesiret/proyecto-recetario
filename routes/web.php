@@ -22,9 +22,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/inicio', function () {
-    return view('inicio');
-})->middleware('auth','verified');
+Route::get('/inicio', [MenuController::class, 'inicio'])->middleware('auth','verified');
 
 
 Route::get('recetaimg-descarga/{receta}', [RecetasController::class, 'descargar'])->name('recetaimg.descarga');
