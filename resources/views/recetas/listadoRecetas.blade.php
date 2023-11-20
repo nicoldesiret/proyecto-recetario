@@ -41,34 +41,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Denily<span>.</span></h1>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#recetas">Recetas</a></li>
-          <li><a href="#">Desayunos</a></li>
-          <li><a href="#">Comidas</a></li>
-          <li><a href="#">Cenas</a></li>
-          <li><a href="#">Postres</a></li>
-          <li><a href="#">Bebidas</a></li>
-          <li><a href="#">Planificador</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-      <a class="btn-book-a-table" href="{{route('recetas.create')}}">Agregar nueva receta</a>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    </div>
-  </header><!-- End Header -->
+  <x-navbar/>
   
   <main id="main">
 
@@ -81,6 +54,35 @@
           <p>Conoce nuestras <span>Mejores recetas</span></p>
         </div>
 
+        <form action="{{ route('recetas.index') }}" method="GET" class="mt-4">
+          @csrf
+      
+          <div class="form-group">
+              <label for="titulo">Buscar por título:</label>
+              <input type="text" name="titulo" class="form-control">
+          </div>
+      
+          <div class="form-group">
+              <label for="tipoComida">Buscar por tipo de comida:</label>
+              <select name="tipoComida" class="form-control">
+                  <option value="Desayuno">Desayuno</option>
+                  <option value="Almuerzo">Almuerzo</option>
+                  <option value="Comida">Comida</option>
+                  <option value="Cena">Cena</option>
+                  <option value="Postre">Postre</option>
+                  <option value="Bebida">Bebida</option>
+              </select>
+          </div>
+      
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="{{ route('recetas.index') }}" class="btn btn-secondary">Limpiar filtros</a>
+          </div>
+      </form>
+      
+      @if($noResultados)
+          <p>No se encontraron resultados.</p>
+      @else
         <ul class="row gy-4">
           @foreach($recetas as $receta)
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
@@ -137,6 +139,7 @@
           </div>
           @endforeach
         </ul>
+      @endif
       </div>
     </section>
 

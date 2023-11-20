@@ -19,15 +19,27 @@ class RecetasController extends Controller
          $this->middleware(['auth','verified'])->except('index','show');
      }
      
-    public function index()
-    {
-        $recetas = Recetas::all(); ///regresa todo lo de la tabla
-        ///Recetas::where('nombre','Nicol')->get();
-        ///$recetas = Recetas::where('user_id')->get();
-
-        //dd($recetas); ///verficar que la consulta funciona
-        return view('recetas/listadoRecetas', compact('recetas'));
-    }
+     public function index(Request $request)
+     {
+         $query = Recetas::query();
+ 
+         // Aplicar filtro por título si se ha enviado un valor en la solicitud
+         if ($request->filled('titulo')) {
+             $titulo = $request->input('titulo');
+             $query->where('titulo', 'LIKE', "%$titulo%");
+         }
+ 
+         // Aplicar filtro por tipo de comida si se ha enviado un valor en la solicitud
+         if ($request->filled('tipoComida')) {
+             $tipoComida = $request->input('tipoComida');
+             $query->where('tipoComida', $tipoComida);
+         }
+ 
+         $recetas = $query->get();
+         $noResultados = $recetas->isEmpty();
+ 
+         return view('recetas.listadoRecetas', compact('recetas','noResultados'));
+     }
 
     /**
      * Show the form for creating a new resource.
