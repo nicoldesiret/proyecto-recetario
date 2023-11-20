@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Recetas;
 use App\Models\Etiqueta;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class RecetasController extends Controller
 {
@@ -55,6 +56,7 @@ class RecetasController extends Controller
 
         $request->merge([
             'archivo_ubicacion'=>$request->file('archivo')->store('public/img_recetas'),
+            'user_id' => Auth::id()
         ]);
 
         Recetas::create($request->all());

@@ -88,7 +88,11 @@
 
               <div class="d-flex justify-content-between" style="margin-bottom:1em; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
                 <div style="margin-right: 5em;">
-                  <i class="bi bi-person" style="background-color: #ce1212; color: #fff; padding:5px; padding-left: 8px; padding-right:8px; border-radius: 50%; font-size: 20px;"></i><a href="blog-single.html" style="color: black; margin-left: 3px; font-size: 18px"><b>Usuario</b></a>
+                  <i class="bi bi-person" 
+                    style="background-color: #ce1212; color: #fff; padding:5px; padding-left: 8px; padding-right:8px; border-radius: 50%; font-size: 20px;"></i>
+                    <a href="blog-single.html" style="color: black; margin-left: 3px; font-size: 18px">
+                      <b>{{ $receta->user->name }}</b>
+                  </a>
                 </div>
                 <div>
                   <a href="blog-single.html" style="color: black; margin-right: 5px; color: #9b9b9b;">{{$receta->created_at->format('d/m/Y H:i')}} <i class="bi bi-clock"></i></a>

@@ -62,8 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Menu::class);
     }
 
-    /*public function receta() 
+    public function receta() 
     {
         return $this->hasMany(Recetas::class);
-    }*/
+    }
 }

@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class Recetas extends Model
 {
     use HasFactory;
-    protected $fillable =['titulo','tipoComida','descripcion','archivo_ubicacion'];
+    protected $fillable =['titulo','tipoComida','descripcion','archivo_ubicacion','user_id'];
     
-    /*public function user()
+    public function user()
     {
         return $this->belongsTo(User::class);
-    }*/
+    }
 
     public function comentarios(): HasMany
     {
