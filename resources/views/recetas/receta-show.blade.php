@@ -72,7 +72,9 @@
             <p>{{$receta->descripcion}}</p>
             </div>
             <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-            <img src="/assets/img/hero-img.png" class="img-fluid" alt="" >
+              <a href="{{ route('recetaimg.descarga', $receta) }}">
+                <img src="{{ \Storage::url($receta->archivo_ubicacion) }}" alt="{{ $receta->titulo }}" class="img-fluid">
+              </a>
             </div>
         </div>
           <div>

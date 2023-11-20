@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Recetas;
 use App\Models\Etiqueta;
-
+use Illuminate\Support\Facades\Storage;
 
 class RecetasController extends Controller
 {
@@ -39,10 +39,21 @@ class RecetasController extends Controller
         $request->validate([
             'titulo' => 'required|regex:/^[\pL\s\-]+$/u|max:150',
             'tipoComida' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
-            'descripcion' => 'required|string|max:1000'
+            'descripcion' => 'required|string|max:1000',
+            'archivo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
+
+        if(!$request->file('archivo')->isValid()){
+            //mensaje de error
+        }
+
+        $request->merge([
+            'archivo_ubicacion'=>$request->file('archivo')->store('public/img_recetas'),
+        ]);
+
+        Recetas::create($request->all());
        
-        //$request->validate([]);
+        /*
         $recetas = new Recetas();
         $recetas->titulo = $request->titulo;
         $recetas->descripcion = $request->descripcion;
@@ -51,7 +62,7 @@ class RecetasController extends Controller
 
         // Asociar la etiqueta seleccionada con la receta
         //dd($request->etiqueta_id);
-        $recetas->etiquetas()->attach($request->etiqueta_id);
+        $recetas->etiquetas()->attach($request->etiqueta_id);*/
 
         return redirect()->route('recetas.index');
     }
@@ -94,4 +105,10 @@ class RecetasController extends Controller
         $receta->delete();
         return redirect()->route('recetas.index');
     }
+
+    public function descargar(Recetas $receta)
+    {
+        return Storage::download($receta->archivo_ubicacion);
+    }
 }
+

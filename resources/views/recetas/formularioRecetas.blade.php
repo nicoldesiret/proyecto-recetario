@@ -99,12 +99,16 @@
           <div class="col-lg-4 reservation-img" style="background-image: url(/assets/img/recetario/nuevareceta.jpg);"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="/recetas" method="POST" class="php-email-form">
+            <form action="/recetas" method="POST" class="php-email-form" enctype="multipart/form-data">
                 @csrf
                 <div class="row gy-4">
                   <div class="col-lg-12">
                     <input type="text" name="titulo" class="form-control" placeholder="Nombre del platillo" >
                     <div class="validate"></div>
+                  </div>
+
+                  <div class="col-lg-12">
+                    <input type="file" name="archivo" class="form-control">
                   </div>
                   
                   <div class="col-lg-12">

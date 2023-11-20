@@ -4,6 +4,7 @@ use App\Http\Controllers\IngredientesController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\RecetasController;
 use App\Http\Controllers\MenuController;
+use App\Models\Recetas;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\MenuController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('recetaimg-descarga/{receta}', [RecetasController::class, 'descargar'])->name('recetaimg.descarga');
 
 //Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
 Route::resource('ingredientes', IngredientesController::class);//->middleware('auth'); SI FUNCIONA

@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Recetas extends Model
 {
     use HasFactory;
-
+    protected $fillable =['titulo','tipoComida','descripcion','archivo_ubicacion'];
+    
     /*public function user()
     {
         return $this->belongsTo(User::class);
