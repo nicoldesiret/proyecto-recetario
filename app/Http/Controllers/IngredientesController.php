@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class IngredientesController extends Controller
 {
-    public function _construct()
+    public function __construct()
     {
         $this->middleware('auth')->except('index','show');
         //NO FUNCIONÓ

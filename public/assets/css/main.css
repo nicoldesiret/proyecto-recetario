@@ -301,6 +301,24 @@ section {
   scroll-margin-top: 90px;
 }
 
+.button-logout {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  text-decoration: none;
+  color:#7f7f90;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.5s;
+  margin: 0 10px 0 13px;
+}
+
+.button-logout:hover{
+  color:var(--color-primary);
+}
+
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/

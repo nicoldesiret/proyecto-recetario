@@ -18,20 +18,20 @@ use App\Models\Recetas;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Route::get('recetaimg-descarga/{receta}', [RecetasController::class, 'descargar'])->name('recetaimg.descarga');
 
 //Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
-Route::resource('ingredientes', IngredientesController::class);//->middleware('auth'); SI FUNCIONA
+Route::resource('ingredientes', IngredientesController::class); //SI FUNCIONA
 
 //Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
 Route::resource('comentarios', ComentariosController::class);
 
 Route::resource('recetas', RecetasController::class);
 
-Route::resource('menus', MenuController::class);
+Route::resource('menus', MenuController::class)->middleware('auth');;
 
 
   #Aquí debes poner resource 
