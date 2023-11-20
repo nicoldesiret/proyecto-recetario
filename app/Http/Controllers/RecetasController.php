@@ -12,6 +12,12 @@ class RecetasController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+     {
+         $this->middleware(['auth','verified'])->except('index','show');
+     }
+     
     public function index()
     {
         $recetas = Recetas::all(); ///regresa todo lo de la tabla

@@ -9,12 +9,9 @@ class IngredientesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show');
-        //NO FUNCIONÓ
+        $this->middleware(['auth','verified'])->except('index','show');
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $ingredientes = Ingredientes::all(); //recupera todo lo de la tabla

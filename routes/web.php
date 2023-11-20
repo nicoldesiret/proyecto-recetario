@@ -4,7 +4,8 @@ use App\Http\Controllers\IngredientesController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\RecetasController;
 use App\Http\Controllers\MenuController;
-use App\Models\Recetas;
+
+use Illuminate\Auth\Events\Verified;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,30 +22,27 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+})->middleware('auth','verified');
+
+
 Route::get('recetaimg-descarga/{receta}', [RecetasController::class, 'descargar'])->name('recetaimg.descarga');
 
-//Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
-Route::resource('ingredientes', IngredientesController::class); //SI FUNCIONA
+Route::resource('ingredientes', IngredientesController::class); 
 
-//Route::get('ingredientes/pdf', [IngredientesController::class. 'pdf'])->name('ingredientes.pdf');
 Route::resource('comentarios', ComentariosController::class);
 
 Route::resource('recetas', RecetasController::class);
 
-Route::resource('menus', MenuController::class)->middleware('auth');;
+//Asegura que el usuario esté verificado y autenticado para crear menús personales
+Route::resource('menus', MenuController::class)->middleware(['auth', 'verified']);
 
-
-  #Aquí debes poner resource 
-#'comentario' puede ser lo que yo quiera pero, también tiene que estár 
+//Routhe::middleware->group(function()){}para aahrupar normas y agregarles el auth
 #en action="/comentario"> esto en formulario, dentro del action tiene que coincidir. 
 
-Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
+#Route::get('comentario/pdf', [ComentariosController::class, 'pdf'])->name('comentario.pdf');
 #Route::post('/', [ComentariosControllerntroller::class, 'create'])
-
-
-Route::get('prueba', function(){
-    return view('prueba');
-});
 
 Route::middleware([
     'auth:sanctum',

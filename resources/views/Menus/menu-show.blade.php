@@ -58,7 +58,7 @@
 
     <script>
         function mostrarConfirmacion() {
-            if (confirm('¿Estás seguro de que deseas borrar este menú?')) {
+            if (confirm('¿Realmente deseas borrar este menú?')) {
                 document.getElementById('delete-form').submit();
             }
         }
