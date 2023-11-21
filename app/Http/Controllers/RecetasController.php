@@ -88,7 +88,7 @@ class RecetasController extends Controller
         $etiquetasReceta = array_merge($etiquetasCreadas, Etiqueta::whereIn('id', $etiquetasSeleccionadas)->pluck('id')->toArray());
         $receta->etiquetas()->attach($etiquetasReceta);
     
-        return redirect()->route('recetas.index');
+        return redirect()->route('ingredientes.create', ['recetaId' => $receta->id]);
     }
     
     public function show(Recetas $receta)

@@ -106,6 +106,7 @@
                   <div class="section-header">
                     <p style="font-size:50px;">Agregar <span>Ingrediente</span></p>
                   </div>
+                  <input type="hidden" name="recetas_id" value="{{ $recetaId }}">
                   <div class="col-md-6">
                     <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre del Ingrediente">
                     @error('nombre')

@@ -25,10 +25,13 @@ class IngredientesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('ingredientes/ingrediente-create');
+        $recetaId = $request->input('recetaId');
+        return view('ingredientes/ingrediente-create', compact('recetaId'));
     }
+    
+    
 
     /**
      * Store a newly created resource in storage.
@@ -42,14 +45,8 @@ class IngredientesController extends Controller
         ]);
         
         Ingredientes::create($request->all());
-       // $ingrediente = new Ingredientes();
-        //$ingrediente->nombre = $request->nombre;
-        //$ingrediente->cantidad = $request->cantidad;
-
-        //$ingrediente->unidadMedida = $request->unidadMedida;
-        //$ingrediente->save();
-
-        return redirect()->route('ingredientes.index');
+    
+        return redirect()->route('recetas.index');
     }
 
     /**

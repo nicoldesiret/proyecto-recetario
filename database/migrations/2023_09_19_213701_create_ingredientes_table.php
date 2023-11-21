@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ingredientes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('recetas_id')->constrained();
             $table->string('nombre');
             $table->float('cantidad', 10, 2);
             $table->string('unidadMedida')->nullable();

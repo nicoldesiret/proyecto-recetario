@@ -124,18 +124,6 @@
                 <div class="text-center"><p style="font-size: 14px; color: black;">{{$receta->descripcion}}</p><br></div>
               </div>
 
-              <div style="display: flex">
-                <a href="{{route('recetas.edit', $receta->id)}}" class="btn btn-danger" style="background-color:#CE1212; font-size:12px; border-radius: 20px; margin-right:20px;">
-                  <i class="bi bi-pencil-square"></i>Editar
-                </a>
-                <form action="{{route('recetas.destroy', $receta)}}" method=POST>
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger" style="background-color:#CE1212; font-size:12px; border-radius: 20px;">
-                    <i class="bi bi-trash"></i>Borrar
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
           @endforeach

@@ -76,14 +76,20 @@
                 <img src="{{ \Storage::url($receta->archivo_ubicacion) }}" alt="{{ $receta->titulo }}" class="img-fluid">
               </a>
             </div>
-        </div>
+          </div>
           <div>
-                    <ul>
-                        @foreach ($receta->comentarios as $c)
-                            <li>{{ $c->comentario }}</li>
-                        @endforeach
-                    </ul>
-
+            <ul>
+                @foreach ($receta->ingredientes as $ingrediente)
+                    <li>{{ $ingrediente->nombre}}</li>
+                @endforeach
+            </ul>
+          </div>
+          <div>
+            <ul>
+                @foreach ($receta->comentarios as $c)
+                    <li>{{ $c->comentario }}</li>
+                @endforeach
+            </ul>
           </div>
           <ul>
               @foreach ($receta->etiquetas as $etiqueta)

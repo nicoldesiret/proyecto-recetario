@@ -16,6 +16,11 @@ class Recetas extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function ingredientes()
+    {
+        return $this->hasMany(Ingredientes::class);
+    }
+
     public function comentarios(): HasMany
     {
         return $this->hasMany(Comentarios::class);
