@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Recetas;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class RecetasController extends Controller
 {
@@ -37,37 +36,14 @@ class RecetasController extends Controller
         $request->validate([
             'titulo' => 'required|regex:/^[\pL\s\-]+$/u|max:150',
             'tipoComida' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
-            'descripcion' => 'required|string|max:1000',
-            /**AGREGAR ARCHIVO */
-            'archivo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:1000',
+            'descripcion' => 'required|string|max:1000'
         ]);
-
-       //if ($request->file('archivo')->isValid()) {
-
-            // $recetas->file('archivo')->store('imagenes-recetas');
-     
-             //}
-
-
-        //$recetas = Recetas::create($request->all());
-
-
-        $request->validate([]); 
+       
+        //$request->validate([]);
         $recetas = new Recetas();
         $recetas->titulo = $request->titulo;
         $recetas->descripcion = $request->descripcion;
         $recetas->tipoComida = $request->tipoComida;
-
-        if ($request->hasFile('archivo') && $request->file('archivo')->isValid()) {
-            
-            $nombreArchivo = $request->file('archivo')->getClientOriginalName();
-            $ubicacionArchivo = $request->file('archivo')->store('public/imagenes-recetas');
-    
-            // Asignar el nombre y la ubicación del archivo al modelo
-            $recetas->archivo_nombre = $nombreArchivo;
-            $recetas->archivo_ubicacion = $ubicacionArchivo;
-        }
-
         $recetas->save();
 
         return redirect()->route('recetas.index');

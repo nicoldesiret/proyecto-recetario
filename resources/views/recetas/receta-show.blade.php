@@ -72,8 +72,7 @@
             <p>{{$receta->descripcion}}</p>
             </div>
             <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-            <img src="{{ \Storage::url($receta->archivo_ubicacion) }}" alt="" style="width: 300px; height: 200px; object-fit: cover;">
-            <!--==<img src="/assets/img/hero-img.png" class="img-fluid" alt="" >== -->
+            <img src="/assets/img/hero-img.png" class="img-fluid" alt="" >
             </div>
         </div>
           <div>
